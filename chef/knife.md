@@ -91,3 +91,11 @@ knife ssh "*:*" "uptime" -i ~/.ssh/id_rsa.pub -x sysadmin --no-host-key-verify
 ```bash
 knife ssh "name:mimas.cvision.lab" "free -m > /tmp/hw; sudo hdparm -I /dev/sd[abcd] >> /tmp/hw; cat /proc/cpuinfo | grep -e 'model name' -e 'cpu cores' >> /tmp/hw" -i ~/.ssh/id_rsa -x sysadmin --no-host-key-verify
 ```
+
+**UsingSearch**
+
+List all nodes names:
+
+```bash
+knife search "*:*" -i
+```

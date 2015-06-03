@@ -4,7 +4,7 @@
 
 > This command forward localhost:3390 to 192.168.1.251:3389 remote server port.
 
-Open tunnel and exit, tunnel run in background mode
+Open tunnel 
 
 ```
 ssh -v -N -L 3390:192.168.1.251:3389 srvadm@i.suntimes.ru -p 2283

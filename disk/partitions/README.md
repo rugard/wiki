@@ -14,6 +14,8 @@ tune2fs -l /dev/mapper/sysraid-zeus--rootfs | grep -e 'Last mounted' -e 'Maximum
 
 ```bash
 du -sh /* --exclude=/storage --exclude=/home
+sudo du -s -BM /home/skubriev/* | sort -n
+sudo du -s -BM /var/lib/lxc/* | sort -n
 ```
 
 **File system flags**

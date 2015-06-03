@@ -16,6 +16,15 @@ mysql -uroot -p456852 -e 'show databases;'
 ```
 
 ```
+create database `redmine`;
+create user 'rmdbuser'@'localhost' identified by '’;
+grant all privileges on redmine.* to 'rmdbuser'@'localhost';
+select * from user;
+flush privileges;
+
+```
+
+```
 SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = 'bacula' AND table_name LIKE 'webacula%';
 SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = 'bacula' AND table_name NOT LIKE 'webacula%';
 SELECT table_name FROM information_schema.tables WHERE table_schema = 'bacula' AND table_name LIKE 'webacula%';

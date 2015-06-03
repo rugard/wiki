@@ -29,3 +29,18 @@ apt-get install scsitools
 rescan-scsi-bus
 ```
 
+## Using dd
+
+**Copy logical volume over network**
+
+> Don't forget to add user on destination machine to disk group
+
+```bash
+usermod -aG disk srvadm
+```
+
+```bash
+dd if=/dev/sysraid/serv1 | pv | gzip -c -9 | ssh srvadm@192.168.1.4 "gzip -dc | dd of=/dev/sysraid2/serv1"
+```
+
+

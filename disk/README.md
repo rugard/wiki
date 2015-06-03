@@ -42,5 +42,14 @@ usermod -aG disk srvadm
 ```bash
 dd if=/dev/sysraid/serv1 | pv | gzip -c -9 | ssh srvadm@192.168.1.4 "gzip -dc | dd of=/dev/sysraid2/serv1"
 ```
+## Using badblocks
 
+Read-only testing is the default and doesn't need special parameters.
 
+```bash
+badblocks -sv /dev/sda
+```
+
+> -s gives the process indicator
+
+> -v gives verbose

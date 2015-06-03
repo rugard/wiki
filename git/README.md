@@ -27,3 +27,14 @@ Follow: http://stackoverflow.com/questions/7244321/how-to-update-github-forked-r
  git push origin master 
 
 ```
+
+**View all history(changes) of selected file**
+
+```bash
+git log -p roles/default_server.json
+```
+**Remove branch after merge with master**
+
+```bash
+git branch -d look_dmz
+```

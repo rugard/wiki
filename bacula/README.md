@@ -1,3 +1,7 @@
+
+
+
+
 How to restore from bacula without catalog, only from 
 
 http://pipposan.wordpress.com/2010/06/09/bacula-tape-restore-without-database/

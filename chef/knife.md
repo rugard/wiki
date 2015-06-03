@@ -41,3 +41,44 @@ knife node environment_set ganymede.cvision.lab cvisionlab
 ...
 knife node run_list add redmine-dev.cvision.lab 'recipe[csquiddebproxy],recipe[apt],recipe[initialubuntu],recipe[ntp::ntpdate],credmine'
 ```
+
+**Search node's by system version**
+
+```bash
+knife search node 'platform_version:12.04' -i
+```
+
+**Delete all cookbooks from server**
+
+```bash
+skubriev@mimas:~/chef-repo$ knife cookbook bulk delete ".*" -p
+
+All versions of the following cookbooks will be deleted:
+
+apache2               dc                    openssl
+apt                   dpkg_autostart        openvpn
+aws                   fail2ban              perl
+...
+```
+
+**knife ssh**
+
+Run a chef-client on nodes
+
+```bash
+knife ssh "roles:default_server" "sudo chef-client>/dev/null;echo $?" -i ~/.ssh/id_rsa -x sysadmin --no-host-key-verify
+```
+
+```
+knife ssh "roles:default_desktop" "sudo chef-client &2>1 1>/dev/null; if [ $? -eq 0 ]; then echo "OK"; else echo "BAD"; fi" -i ~/.ssh/id_rsa -x sysadmin --no-host-key-verify
+```
+
+```
+knife ssh "*:*" "uptime" -i ~/.ssh/id_rsa.pub -x sysadmin --no-host-key-verify
+```
+
+**invent with knife**
+
+```bash
+knife ssh "name:mimas.cvision.lab" "free -m > /tmp/hw; sudo hdparm -I /dev/sd[abcd] >> /tmp/hw; cat /proc/cpuinfo | grep -e 'model name' -e 'cpu cores' >> /tmp/hw" -i ~/.ssh/id_rsa -x sysadmin --no-host-key-verify
+```

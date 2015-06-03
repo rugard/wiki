@@ -12,3 +12,12 @@ root@pdc:/home/sysadmin# nsupdate -k /etc/bind/rndc.key
 > update add 8.128.168.192.in-addr.arpa 900 ptr service.cvision.lab.
 > send
 ```
+
+# Lookups with host
+
+```bash
+host -l cvision.lab
+...
+host -l 128.168.192.in-addr.arpa.
+
+```

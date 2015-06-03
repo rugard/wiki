@@ -101,3 +101,10 @@ List all nodes names:
 knife search "*:*" -i
 knife search node 'name:*cvision.lab-*' -i
 ```
+## Using chef-vault
+
+Create a vault
+
+```
+knife vault create _ldap_cvision_lab srvreporeader '{"password":"srvreporeader_password" }' --admins admin -S name:*.cvision.lab
+```

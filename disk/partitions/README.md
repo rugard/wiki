@@ -45,3 +45,8 @@ Adjust how often fs will be checked
 ```bash
 tune2fs -c 30 /dev/sda1
 ```
+## Using lsblk
+
+```bash
+lsblk -o NAME,MODEL,FSTYPE,MOUNTPOINT
+```

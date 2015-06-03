@@ -48,7 +48,16 @@ knife node run_list add redmine-dev.cvision.lab 'recipe[csquiddebproxy],recipe[a
 knife search node 'platform_version:12.04' -i
 ```
 
-**Delete all cookbooks from server**
+**Backup and Delete all cookbooks from server**
+
+Backup
+
+```
+sudo chef gem install knife-backup
+knife backup export cookbooks -D Backups/chef-server-cookbooks-before-berks3
+```
+
+Delete
 
 ```bash
 skubriev@mimas:~/chef-repo$ knife cookbook bulk delete ".*" -p

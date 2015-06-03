@@ -16,13 +16,14 @@ knife node show zeus.cvision.lab -a postfix.main.mydestination
 
 **Add self-signed certificate to trusted on the chef-client**
 
-http://jtimberman.housepub.org/blog/2014/12/11/chef-12-fix-untrusted-self-sign-certs/
+See http://jtimberman.housepub.org/blog/2014/12/11/chef-12-fix-untrusted-self-sign-certs/
 
 ```bash
-knife ssl fetch https://chef.cvision.lab
+knife ssl fetch https://chef.cvision.lab -c /etc/chef/client.rb
 sudo mkdir /etc/chef/trusted_certs
 sudo cp /home/skubriev/.chef/trusted_certs/chef_cvision_lab.crt /etc/chef/trusted_certs/
 ```
+
 
 **Upload a databag to server from chef-repo**
 
@@ -86,16 +87,17 @@ knife ssh "roles:default_desktop" "sudo chef-client &2>1 1>/dev/null; if [ $? -e
 knife ssh "*:*" "uptime" -i ~/.ssh/id_rsa.pub -x sysadmin --no-host-key-verify
 ```
 
-**invent with knife**
+**Inventarization with knife**
 
 ```bash
 knife ssh "name:mimas.cvision.lab" "free -m > /tmp/hw; sudo hdparm -I /dev/sd[abcd] >> /tmp/hw; cat /proc/cpuinfo | grep -e 'model name' -e 'cpu cores' >> /tmp/hw" -i ~/.ssh/id_rsa -x sysadmin --no-host-key-verify
 ```
 
-**UsingSearch**
+**Using Search**
 
 List all nodes names:
 
 ```bash
 knife search "*:*" -i
+knife search node 'name:*cvision.lab-*' -i
 ```

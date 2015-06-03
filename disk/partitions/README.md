@@ -50,3 +50,9 @@ tune2fs -c 30 /dev/sda1
 ```bash
 lsblk -o NAME,MODEL,FSTYPE,MOUNTPOINT
 ```
+## Using dmsetup
+
+```bash 
+dmsetup ls
+```
+> minor version - is a dm-X

@@ -38,4 +38,6 @@ Useful after boostrap a node
 ```bash
 knife node run_list add ganymede.cvision.lab 'role[ganymede_cvision_lab]'
 knife node environment_set ganymede.cvision.lab cvisionlab
+...
+knife node run_list add redmine-dev.cvision.lab 'recipe[csquiddebproxy],recipe[apt],recipe[initialubuntu],recipe[ntp::ntpdate],credmine'
 ```

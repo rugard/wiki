@@ -1,5 +1,13 @@
 # Control disk devices.
 
+## Recovery
+
+```bash
+ddrescue --force --verbose --direct --max-retries=2 /dev/sda1 /dev/sde1 /tmp/1
+```
+
+Ей нужно три аргумента обязательных, это откуда, куда, и лог файл.
+
 ## Device avaibility
 
 **Remove drive from system (sata and esata approved).**

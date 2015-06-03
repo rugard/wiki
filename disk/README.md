@@ -75,3 +75,19 @@ badblocks -sv /dev/sda
 > -s gives the process indicator
 
 > -v gives verbose
+
+Compressing virtualmachines images with qemu nbd
+
+```
+modprobe nbd max_part=63
+qemu-nbd -c /dev/nbd0 /var/lib/libvirt/images/vmdisk.qcow2 
+ll /dev/nbd*
+fdisk -l /dev/nbd0
+apt-get install zerofree
+zerofree /dev/nbd0p1
+
+#Disconnect(remove device)
+
+qemu-nbd -d /dev/nbd0
+
+```

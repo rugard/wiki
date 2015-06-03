@@ -56,3 +56,10 @@ lsblk -o NAME,MODEL,FSTYPE,MOUNTPOINT
 dmsetup ls
 ```
 > minor version - is a dm-X
+
+```
+root@zeus:/home/srvadm# dmsetup info -c /dev/sysraid/mimasroot
+root@zeus:/home/srvadm# dmsetup remove /dev/sysraid/mimasroot
+Name          	Maj Min Stat Open Targ Event  UUID                                                           	 
+sysraid-mimasroot 252  17 L--w	0	9  	0 LVM-ba1mgBD69ENfsjt0NG7zZKCAWSqjMrMv3JaKYviOl8n06r5O39yCxwn8PDccz7Ah
+```

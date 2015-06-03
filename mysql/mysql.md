@@ -15,6 +15,31 @@ mysql -uroot -p456852 -e 'show databases;'
 
 ```
 
+```
+SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = 'bacula' AND table_name LIKE 'webacula%';
+SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = 'bacula' AND table_name NOT LIKE 'webacula%';
+SELECT table_name FROM information_schema.tables WHERE table_schema = 'bacula' AND table_name LIKE 'webacula%';
+select table_name from information_schema.tables where table_schema = 'bacula';
+```
+
+```
+PASSWORD - to save hash instead of cleartext !!!
+UPDATE mysql.user SET Password=PASSWORD('cleartextpassword') WHERE User='root';
+UPDATE mysql.user SET Password=PASSWORD('cleartextpassword') WHERE User='repl';
+UPDATE mysql.user SET Password=PASSWORD('cleartextpassword') WHERE User='debian-sys-maint';
+
+flush privileges;
+```
+
+
+
+
+```
+UPDATE mysql.user SET host='%' WHERE User='root' and host='localhost';
+flush privileges;
+
+```
+
 ```bash
 mysql -u root -p
 Password:
@@ -24,6 +49,27 @@ flush privileges;
 ```
 
 **Reset mysql root password script:**
+
+Manually:
+
+```bash
+/etc/init.d/mysql stop 
+mysqld_safe --skip-grant-tables &
+mysql -u root
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 1 to server version: 4.1.15-Debian_1-log
+Type 'help;' or '\h' for help. Type '\c' to clear the buffer.
+mysql>
+mysql> use mysql;
+mysql> update user set password=PASSWORD("NEW-ROOT-PASSWORD") where User='root';
+mysql> flush privileges;
+mysql> quit
+killall mysqld_safe
+killall mysqld_safe
+140211 16:15:26 mysqld_safe mysqld from pid file /var/run/mysqld/mysqld.pid ended
+```
+
+From chef cookbook redmine:
 
 ```
 mysql -u root --password=#{node['mysql']['server_root_password']} mysql -e 'show databases;'> /dev/null

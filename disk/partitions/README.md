@@ -32,3 +32,16 @@ Set Check Forced to all mapper fs’s
 ```bash
 for device in /dev/mapper/*;do tune2fs -c 1 $device;done
 ```
+
+Force root fs to fsck at reboot
+
+```bash
+touch /forcefsck
+reboot
+```
+
+Adjust how often fs will be checked
+
+```bash
+tune2fs -c 30 /dev/sda1
+```

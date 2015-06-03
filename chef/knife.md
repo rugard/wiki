@@ -31,7 +31,7 @@ skubriev@mimas:~/chef-repo/data_bags$ knife data bag from file users users/sysad
 Updated data_bag_item[users::sysadmin]
 ```
 
-**Set node run_list and default environment 
+**Set node run_list and default environment** 
 
 Useful after boostrap a node
 

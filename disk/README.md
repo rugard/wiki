@@ -91,3 +91,10 @@ zerofree /dev/nbd0p1
 qemu-nbd -d /dev/nbd0
 
 ```
+
+**Flush disk cache and buffers:**
+
+```bash
+sync && echo 3 > /proc/sys/vm/drop_caches
+```
+

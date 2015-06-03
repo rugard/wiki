@@ -15,6 +15,14 @@ mysql -uroot -p456852 -e 'show databases;'
 
 ```
 
+```bash
+mysql -u root -p
+Password:
+select Host,User,Password from mysql.user;
+delete from mysql.user where host='192.168.128.68' and user='root';
+flush privileges;
+```
+
 **Reset mysql root password script:**
 
 ```

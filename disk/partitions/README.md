@@ -63,3 +63,12 @@ root@zeus:/home/srvadm# dmsetup remove /dev/sysraid/mimasroot
 Name          	Maj Min Stat Open Targ Event  UUID                                                           	 
 sysraid-mimasroot 252  17 L--w	0	9  	0 LVM-ba1mgBD69ENfsjt0NG7zZKCAWSqjMrMv3JaKYviOl8n06r5O39yCxwn8PDccz7Ah
 ```
+## Using ramdisk and test speed
+
+```bash
+sudo mkdir /mnt/ramfs
+sudo mount -t ramfs -o size=2000M ramfs /mnt/ramfs
+sudo cp one_mysql_several_moves/test.mp4 /mnt/ramfs/
+
+\time -f "%e" cp test.mp4 /dev/null &
+```

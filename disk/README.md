@@ -57,6 +57,13 @@ dd if=/dev/myvolumegroup/mylogicalvolume bs=4096 | pv | ssh targetmachine dd of=
 dd if=/dev/sysraid/pdc-sda bs=64K | gzip -c | pv | ssh -c blowfish srvadm@backup dd of=/mnt/bigraid/backups/libvirt/pdc-sda.raw.gzip bs=64K
 
 ```
+
+**Zero mbr**
+
+```bash
+dd if=/dev/zero of=/dev/sdX count=1 bs=512 && sync
+```
+
 ## Using badblocks
 
 Read-only testing is the default and doesn't need special parameters.

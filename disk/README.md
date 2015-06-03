@@ -41,6 +41,13 @@ usermod -aG disk srvadm
 
 ```bash
 dd if=/dev/sysraid/serv1 | pv | gzip -c -9 | ssh srvadm@192.168.1.4 "gzip -dc | dd of=/dev/sysraid2/serv1"
+
+# copy lvm with network
+dd if=/dev/myvolumegroup/mylogicalvolume bs=4096 | pv | ssh targetmachine dd of=/dev/myvolumegroup/mylogicalvolume bs=4096
+
+# Backup to backup server over ssh
+dd if=/dev/sysraid/pdc-sda bs=64K | gzip -c | pv | ssh -c blowfish srvadm@backup dd of=/mnt/bigraid/backups/libvirt/pdc-sda.raw.gzip bs=64K
+
 ```
 ## Using badblocks
 

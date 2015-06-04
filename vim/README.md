@@ -1,5 +1,15 @@
 # Vim tips
 
+**Case insensitive search in Vim**
+
+You need to use the \c escape sequence. So:
+
+```
+\cvpn
+\csearchword
+```
+
+```
 i insert before symbol
 A appedn to end of line
 d$ - delete to end
@@ -12,4 +22,4 @@ dd -delete line
 2dd -delete 2 lines
 
 U AND u - UNDO
-
+```

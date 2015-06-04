@@ -16,3 +16,8 @@ adduser wsadm --uid 1000 --gid 1000
 passwd -d root
 ```
 
+**Refresh group membership without logging out**
+
+```
+exec su -l skubriev
+```

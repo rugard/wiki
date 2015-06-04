@@ -26,3 +26,12 @@ find /var/log/ -type f -exec grep -H -n '^Aug 28.*markup.*' '{}' \;
 find . -type f -size +5G
 ```
 
+Find with excluding a dir
+
+```
+find . -path ./common -prune -o -name '*openvpn*'
+```
+
+> в начале отсекаем -path ./common -prune
+> -o - иначе (логическое или), ищем
+> -name '*openvpn*'

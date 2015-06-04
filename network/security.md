@@ -8,3 +8,9 @@ arp -a -n
 ? (192.168.129.202) at 80:61:8f:21:ad:37 [ether] on br-eth0
 ? (192.168.129.2) at 74:d4:35:75:00:67 [ether] on br-eth0
 ```
+
+Udp scan ntp server
+
+```bash
+sudo nmap -sU -p123 192.168.0.10
+```

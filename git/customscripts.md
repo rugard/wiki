@@ -34,7 +34,7 @@ git checkout master
 * add remote branch to where you can push:
 
 ```bash
-git remote add https https://cvl-skubriev@bitbucket.org/cvisionlabops/customscripts.git
+git remote add https https://vskubriev@bitbucket.org/cvisionlabops/customscripts.git
 ```
 
 * push changes to master

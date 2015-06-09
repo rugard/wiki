@@ -25,6 +25,29 @@ hdparm -Y /dev/sdd
 
 This will delete device from kernel. You will need to reinitialize device on the bus.
 
+**Determine corresponding beetween kernel ata and disk's device name**
+
+http://superuser.com/questions/617192/mapping-ata-device-number-to-logical-device-name
+http://serverfault.com/questions/244944/linux-ata-errors-translating-to-a-device-name
+
+```bash
+root@zeus:/home/sysadmin# ls -l /sys/block/sd?
+lrwxrwxrwx 1 root root 0 Jun  7 13:31 /sys/block/sda -> ../devices/pci0000:00/0000:00:11.0/ata1/host0/target0:0:0/0:0:0:0/block/sda
+lrwxrwxrwx 1 root root 0 Jun  7 13:31 /sys/block/sdb -> ../devices/pci0000:00/0000:00:11.0/ata2/host1/target1:0:0/1:0:0:0/block/sdb
+lrwxrwxrwx 1 root root 0 Jun  7 13:31 /sys/block/sdc -> ../devices/pci0000:00/0000:00:11.0/ata3/host2/target2:0:0/2:0:0:0/block/sdc
+lrwxrwxrwx 1 root root 0 Jun  7 13:31 /sys/block/sdd -> ../devices/pci0000:00/0000:00:11.0/ata4/host3/target3:0:0/3:0:0:0/block/sdd
+lrwxrwxrwx 1 root root 0 Jun  7 13:31 /sys/block/sde -> ../devices/pci0000:00/0000:00:11.0/ata5/host4/target4:0:0/4:0:0:0/block/sde
+```
+
+```bash
+root@zeus:/home/sysadmin# hdparm -I /dev/sd? | grep Model
+	Model Number:       ST1000DM003-1ER162                      
+	Model Number:       ST1000DM003-1ER162                      
+	Model Number:       ST3000DM001-1CH166                      
+	Model Number:       ST3000DM001-1CH166                      
+	Model Number:       ST3000DM001-1ER166     
+```
+
 **Find out drive state:**
 
 ```bash

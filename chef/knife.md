@@ -2,7 +2,7 @@
 
 ## Using knife
 
-**Show differences beetween repo and server
+**Show differences beetween repo and server**
 
 ```bash
 knife diff

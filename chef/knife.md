@@ -2,6 +2,12 @@
 
 ## Using knife
 
+**Show differences beetween repo and server
+
+```bash
+knife diff
+```
+
 **Edit node config in the server**
 
 ```bash

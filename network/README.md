@@ -28,3 +28,14 @@ echo "1" > /proc/sys/net/ipv4/ip_forward
 ```bash
 route add -net 172.17.0.0 netmask 255.255.0.0 gw pandora.cvision.lab
 ```
+
+**Setup additional ip/network**
+
+```
+# Microtik network
+auto br-eth0:0
+allow-hotplug br-eth0:0 inet static
+iface br-eth0:0 inet static
+        address 192.168.88.100
+        netmask 255.255.255.0
+```

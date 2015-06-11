@@ -121,3 +121,39 @@ qemu-nbd -d /dev/nbd0
 sync && echo 3 > /proc/sys/vm/drop_caches
 ```
 
+**Align 3Tb disk !!!**
+
+Check what data is present(this helps to view disk sector size and parameters):
+
+```
+# cat /sys/block/sdb/queue/optimal_io_size
+0
+# cat /sys/block/sdb/queue/minimum_io_size
+262144
+```
+
+Okey, let’s give minimal.
+```
+root@zeus:/home/srvadm# cat /sys/block/sdb/queue/minimum_io_size
+4096
+```
+
+Run parted in help mode:
+
+```
+root@zeus:/home/srvadm# sudo parted -a minimal /dev/sdb
+GNU Parted 2.3
+Using /dev/sdb
+Welcome to GNU Parted! Type 'help' to view a list of comma
+mkpart primary 0% 100%
+
+Check aligenment:
+
+(parted) align-check
+alignment type(min/opt)  [optimal]/minimal? min                      	 
+Partition number? 1                                                  	 
+1 aligned
+
+Create fs on device:
+mkfs.ext4 /dev/sdb2
+```

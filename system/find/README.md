@@ -35,3 +35,7 @@ find . -path ./common -prune -o -name '*openvpn*'
 > в начале отсекаем -path ./common -prune
 > -o - иначе (логическое или), ищем
 > -name '*openvpn*'
+
+```bash
+find . -name .kitchen.yml -not -path "./storage/*"
+```

@@ -27,3 +27,43 @@ cat /var/log/auth.log* | grep 'Failed password' | grep sshd | awk '{print $1,$2}
 \s*-c.*
 \s - space, * - multiple symbols, -c - a parameter, which i want to find
 ```
+
+# sed -r - with Extended regular expressions
+
+>Символы ‘?’, ‘+’, круглые скобки, {}, должны бать экранированы символом \ если вы хотите использовать их как специальные символы
+
+```bash
+sed -r 's/(userPassword:: )(.*)/echo -n "\1"; echo \2 | base64 -d/e' /tmp/passwd
+```
+
+100% work
+```bash
+sed -i -r 's/(BOOT_DEGRADED=)(.*)/echo -n "\1"; echo "true"/e' /etc/initramfs-tools/conf.d/mdadm
+```
+
+```bash 
+sed -r '/^userPassword/s/^userPassword:: (.*)/ echo "\1" | base64 -d/e' /tmp/passwd
+```
+
+Опцию -i нельзя совмещать с другими параметрами он должна идти отдельно т.к. может быть с не обязательным параметром [SUFFIX]
+
+```bash
+sed -i -r '/^.*::.*/s/(^.*:: )(.*)/echo -n "\1"; echo \2 | base64 -d/e' /tmp/passwd
+```
+
+```bash
+cat /etc/dhcp/dhcpd.conf.hosts | grep host | sed -r 's/\s*host\s(.*)\s*\{/\1/'
+cat /etc/dhcp/dhcpd.conf.hosts | grep host | sed -r 's/\s*host\s(.*)\s*\{/\1/' | tr -s '\n' ' '
+```
+
+**Переименование rename sed **
+
+```bash
+for i in *cvision_lab_rb*
+do
+        # zeus.cvision.lab.rb
+        echo $i
+        newname=`echo $i | sed -r 's/(.*)\.(.*)\.(.*)\.(.*)/\1_\2_\3\.\4/'`
+        mv $i $newname
+done
+```

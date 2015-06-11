@@ -39,3 +39,7 @@ find . -path ./common -prune -o -name '*openvpn*'
 ```bash
 find . -name .kitchen.yml -not -path "./storage/*"
 ```
+
+```bash
+find . -size +50M -print -exec ls -lh {} \;
+```

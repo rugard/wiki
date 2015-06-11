@@ -102,3 +102,22 @@ mysql -u root --password=#{node['mysql']['server_root_password']} mysql -e 'show
 ```
 
 
+```sql
+SELECT * FROM redmine.changesets WHERE repository_id=20;
+SELECT * FROM redmine.changesets_issues WHERE;
+SELECT * FROM redmine.changesets WHERE scmid LIKE 'fa7e%';
+SELECT * FROM redmine.repositories WHERE id=97;
+
+UPDATE redmine.repositories SET extra_info="---
+extra_report_last_commit: '0'
+heads:
+- 7c37831b8ab879a0fe2386c780ec0b7808829db6
+db_consistent:
+  ordering: 1"
+WHERE id=116;
+
+
+SELECT * FROM redmine.changesets WHERE repository_id=116;
+return records only after fetch is done ) !!!!
+
+```

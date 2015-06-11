@@ -19,4 +19,11 @@ perl -pe 's/\(.*?\)(, )?//g' /tmp/history.log | sed 's/\s/\n/g'
 cat /var/log/auth.log* | grep 'Failed password' | grep sshd | awk '{print $1,$2}' | sort -k 1,1M -k 2n | uniq -c
 ```
 
+# regex in man pages
 
+>posix regex in man
+
+```
+\s*-c.*
+\s - space, * - multiple symbols, -c - a parameter, which i want to find
+```

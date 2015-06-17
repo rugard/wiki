@@ -1,8 +1,18 @@
 
+**Reset root webacula password**
+
+```!bash
+# mysql -uroot -ppass
+
+mysql> use bacula;
+mysql> select * from webacula_users;
+mysql> delete from webacula_users where login='root';
+mysql> INSERT INTO webacula_users (id, login, pwd, name, active, create_login, role_id) VALUES (1000, 'root', '$P$BbbdFp75Mwp5SkxzT114HL2g3jsn1t0', 'root', 1, NOW(), 1);
+```
 
 
 
-How to restore from bacula without catalog, only from 
+**How to restore from bacula without catalog, only from**
 
 http://pipposan.wordpress.com/2010/06/09/bacula-tape-restore-without-database/
 

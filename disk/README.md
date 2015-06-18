@@ -62,6 +62,12 @@ rescan-scsi-bus
 
 ## Using dd
 
+**View progress in stdout**
+
+```bash
+watch -n5 'sudo kill -USR1 $(pgrep ^dd)'
+```
+
 **Copy logical volume over network**
 
 > Don't forget to add user on destination machine to disk group

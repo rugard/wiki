@@ -2,6 +2,8 @@
 
 **Setting up sources.list**
 
+New style with local mirror:
+
 ```
 # Security packages are always downloaded from main sites
 deb http://security.ubuntu.com/ubuntu trusty-security main restricted universe multiverse
@@ -15,7 +17,33 @@ deb http://extras.ubuntu.com/ubuntu trusty main
 deb mirror://st.cvision.lab/mirrors.txt trusty main restricted universe multiverse
 deb mirror://st.cvision.lab/mirrors.txt trusty-updates main restricted universe multiverse
 deb mirror://st.cvision.lab/mirrors.txt trusty-backports main restricted universe multiverse
+deb mirror://st.cvision.lab/mirrors.txt trusty-proposed main restricted universe multiverse
+```
 
+Old style:
+
+```
+# Binaries
+deb http://ru.archive.ubuntu.com/ubuntu/ trusty main restricted universe multiverse
+deb http://ru.archive.ubuntu.com/ubuntu/ trusty-updates main restricted universe multiverse
+deb http://ru.archive.ubuntu.com/ubuntu/ trusty-backports main restricted universe multiverse
+deb http://security.ubuntu.com/ubuntu trusty-security main restricted universe multiverse
+deb http://archive.canonical.com/ubuntu trusty partner
+deb http://extras.ubuntu.com/ubuntu trusty main
+
+# Sources
+deb-src http://ru.archive.ubuntu.com/ubuntu/ trusty main restricted universe multiverse
+deb-src http://ru.archive.ubuntu.com/ubuntu/ trusty-updates main restricted universe multiverse
+deb-src http://ru.archive.ubuntu.com/ubuntu/ trusty-backports main restricted universe multiverse
+deb-src http://security.ubuntu.com/ubuntu trusty-security main restricted universe multiverse
+deb-src http://archive.canonical.com/ubuntu trusty partner
+deb-src http://extras.ubuntu.com/ubuntu trusty main
+```
+
+Only one arch:
+
+```
+deb [arch=amd64] mirror://st.cvision.lab/mirrors.txt trusty main restricted universe multiverse
 ```
 
 > There is no difference beetween mirror and http://security uri's in downloading speed.

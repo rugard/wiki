@@ -20,6 +20,8 @@ deb mirror://st.cvision.lab/mirrors.txt trusty-backports main restricted univers
 deb mirror://st.cvision.lab/mirrors.txt trusty-proposed main restricted universe multiverse
 ```
 
+It is difficult to setup additional repos like as partner and extras with http server. I conducted an investigation and found that this repos are not synced at most mirrors. Therefore we don't synchronize them.
+
 Old style:
 
 ```

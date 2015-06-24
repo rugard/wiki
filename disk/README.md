@@ -1,4 +1,4 @@
-# Control disk devices.
+bad# Control disk devices.
 
 ## Recovery
 
@@ -7,7 +7,7 @@ ddrescue --force --verbose --direct --max-retries=2 /dev/sda1 /dev/sde1 /tmp/1
 ```
 
 Ей нужно три аргумента обязательных, это откуда, куда, и лог файл.
-
+bad
 ## Device avaibility
 
 **Remove drive from system (sata and esata approved).**
@@ -95,17 +95,33 @@ dd if=/dev/zero of=/dev/sdX count=1 bs=512 && sync
 
 ## Using badblocks
 
-Read-only testing is the default and doesn't need special parameters.
+Read-only testing is the default and doesn't need special parameters:
 
 ```bash
 badblocks -sv /dev/sda
 ```
 
-> -s gives the process indicator
+> -s Gives the process indicator
 
-> -v gives verbose
+> -v Gives verbose
 
-Compressing virtualmachines images with qemu nbd
+Write-Read with 5-x patterns:
+
+```bash
+badblocks -fwsv /dev/sdc
+```
+> -f Don't check if device is in use. (use only if you think you're smarter than the badblocks program)
+
+> -w - Use write-mode test.
+
+Inspecting output:
+
+```
+2068270606ne, 11:56:22 elapsed. (0/9699/0 errors)
+```
+This means - errors while reading/writing/comparing
+
+**Compressing virtualmachines images with qemu nbd**
 
 ```
 modprobe nbd max_part=63

@@ -1,6 +1,6 @@
 # Manage system packages
 
-** Clean packages list cache**
+**Clean packages list cache**
 
 ```bash
 $ sudo rm -r /var/cache/apt /var/lib/apt/lists

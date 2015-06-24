@@ -1,5 +1,29 @@
 # Manage system packages
 
+**Setting up sources.list**
+
+```
+# Security packages are always downloaded from main sites
+deb http://security.ubuntu.com/ubuntu trusty-security main restricted universe multiverse
+#deb mirror://mirrors.ubuntu.com/mirrors.txt trusty-security main restricted universe multiverse
+
+# Additional branches are not present on most of all mirrors, therefore download it from canonical servers
+deb http://archive.canonical.com/ubuntu trusty partner
+deb http://extras.ubuntu.com/ubuntu trusty main
+
+# Main branches download from local mirror.
+deb mirror://st.cvision.lab/mirrors.txt trusty main restricted universe multiverse
+deb mirror://st.cvision.lab/mirrors.txt trusty-updates main restricted universe multiverse
+deb mirror://st.cvision.lab/mirrors.txt trusty-backports main restricted universe multiverse
+
+```
+
+> There is no difference beetween mirror and http://security uri's in downloading speed.
+> mirror://mirrors.ubuntu.com/mirrors.txt
+> real	0m28.792s
+> http://security.ubuntu.com/ubuntu
+> real	0m28.324s
+
 **Clean packages list cache**
 
 ```bash

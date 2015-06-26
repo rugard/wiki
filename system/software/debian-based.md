@@ -81,6 +81,9 @@ deb [arch=amd64] mirror://st.cvision.lab/mirrors.txt trusty main restricted univ
 > real	0m28.324s
 
 **Ubuntu branches**
+
+Following: http://unix.stackexchange.com/questions/185588/whats-the-diffrence-between-the-various-ubuntu-repository-branches
+
 The repository components are:
 
 **Main** - Officially supported software.

@@ -7,7 +7,6 @@ New style with local mirror:
 **trusty**
 
 ```
-# DEFAULT SOURCES
 deb http://security.ubuntu.com/ubuntu trusty-security main restricted universe multiverse
 deb http://archive.canonical.com/ubuntu trusty partner
 deb http://extras.ubuntu.com/ubuntu trusty main
@@ -25,12 +24,10 @@ deb-src mirror://mirrors.ubuntu.com/mirrors.txt trusty main restricted universe 
 deb-src mirror://mirrors.ubuntu.com/mirrors.txt trusty-updates main restricted universe multiverse
 deb-src mirror://mirrors.ubuntu.com/mirrors.txt trusty-proposed main restricted universe multiverse
 deb-src mirror://mirrors.ubuntu.com/mirrors.txt trusty-backports main restricted universe multiverse
-# DEFAULT SOURCES END
 ```
 
 **precise**
 ```
-# DEFAULT SOURCES
 deb http://security.ubuntu.com/ubuntu precise-security main restricted universe multiverse
 deb http://archive.canonical.com/ubuntu precise partner
 deb http://extras.ubuntu.com/ubuntu precise main
@@ -46,7 +43,6 @@ deb-src mirror://mirrors.ubuntu.com/mirrors.txt precise main restricted universe
 deb-src mirror://mirrors.ubuntu.com/mirrors.txt precise-updates main restricted universe multiverse
 deb-src mirror://mirrors.ubuntu.com/mirrors.txt precise-proposed main restricted universe multiverse
 deb-src mirror://mirrors.ubuntu.com/mirrors.txt precise-backports main restricted universe multiverse
-# DEFAULT SOURCES END
 
 ```
 
@@ -93,3 +89,21 @@ $ sudo apt-get install <some-random-package>
 ```
 
 Following: http://serverfault.com/questions/368669/debian-ubuntu-is-it-possible-to-reinitialize-var-lib-apt-lists-and-var-apt-cac
+
+**Fix GPG error on ubuntu 12.04 machines**
+
+Error Text:
+```
+W: GPG error: http://extras.ubuntu.com precise Release: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 16126D3A3E5C1192
+```
+
+Following: http://askubuntu.com/questions/131601/how-to-overcome-signature-verification-error
+
+```bash
+# gpg --keyserver hkp://subkeys.pgp.net --recv-keys 16126D3A3E5C1192
+# gpg --export --armor 16126D3A3E5C1192 | sudo apt-key add -
+# apt-get update
+
+```
+
+

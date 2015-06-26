@@ -7,22 +7,15 @@ New style with local mirror:
 **trusty**
 
 ```
-# DOES not configure this file manually. Ask for help from your system administrator
-
-###########################################################################################################
-# BINARY
+# DEFAULT SOURCES
 deb http://security.ubuntu.com/ubuntu trusty-security main restricted universe multiverse
-
 deb http://archive.canonical.com/ubuntu trusty partner
 deb http://extras.ubuntu.com/ubuntu trusty main
-
 deb mirror://mirror.cvision.lab/mirrors.txt trusty main restricted universe multiverse
 deb mirror://mirror.cvision.lab/mirrors.txt trusty-updates main restricted universe multiverse
 deb mirror://mirror.cvision.lab/mirrors.txt trusty-backports main restricted universe multiverse
 deb mirror://mirror.cvision.lab/mirrors.txt trusty-proposed main restricted universe multiverse
 
-###########################################################################################################
-## SOURCES
 deb-src http://security.ubuntu.com/ubuntu trusty-security main restricted universe multiverse
 
 deb-src http://archive.canonical.com/ubuntu trusty partner
@@ -32,35 +25,28 @@ deb-src mirror://mirrors.ubuntu.com/mirrors.txt trusty main restricted universe 
 deb-src mirror://mirrors.ubuntu.com/mirrors.txt trusty-updates main restricted universe multiverse
 deb-src mirror://mirrors.ubuntu.com/mirrors.txt trusty-proposed main restricted universe multiverse
 deb-src mirror://mirrors.ubuntu.com/mirrors.txt trusty-backports main restricted universe multiverse
+# DEFAULT SOURCES END
 ```
 
 **precise**
 ```
-# DOES not configure this file manually. Ask for help from your system administrator
-
-###########################################################################################################
-# BINARY
+# DEFAULT SOURCES
 deb http://security.ubuntu.com/ubuntu precise-security main restricted universe multiverse
-
 deb http://archive.canonical.com/ubuntu precise partner
 deb http://extras.ubuntu.com/ubuntu precise main
-
 deb mirror://mirror.cvision.lab/mirrors.txt precise main restricted universe multiverse
 deb mirror://mirror.cvision.lab/mirrors.txt precise-updates main restricted universe multiverse
 deb mirror://mirror.cvision.lab/mirrors.txt precise-backports main restricted universe multiverse
 deb mirror://mirror.cvision.lab/mirrors.txt precise-proposed main restricted universe multiverse
 
-###########################################################################################################
-## SOURCES
 deb-src http://security.ubuntu.com/ubuntu precise-security main restricted universe multiverse
-
 deb-src http://archive.canonical.com/ubuntu precise partner
 deb-src http://extras.ubuntu.com/ubuntu precise main
-
 deb-src mirror://mirrors.ubuntu.com/mirrors.txt precise main restricted universe multiverse
 deb-src mirror://mirrors.ubuntu.com/mirrors.txt precise-updates main restricted universe multiverse
 deb-src mirror://mirrors.ubuntu.com/mirrors.txt precise-proposed main restricted universe multiverse
 deb-src mirror://mirrors.ubuntu.com/mirrors.txt precise-backports main restricted universe multiverse
+# DEFAULT SOURCES END
 
 ```
 

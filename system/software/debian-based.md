@@ -5,20 +5,21 @@
 New style with local mirror:
 
 ```
-## BINARY
-# Security packages are always downloaded from main sites
+# DOES not configure this file manually. Ask for help from your system administrator
+
+###########################################################################################################
+# BINARY
 deb http://security.ubuntu.com/ubuntu trusty-security main restricted universe multiverse
 
-# Additional branches are not present on most of all mirrors, therefore download it from canonical servers
 deb http://archive.canonical.com/ubuntu trusty partner
 deb http://extras.ubuntu.com/ubuntu trusty main
 
-# Main branches download from local mirror.
 deb mirror://mirror.cvision.lab/mirrors.txt trusty main restricted universe multiverse
 deb mirror://mirror.cvision.lab/mirrors.txt trusty-updates main restricted universe multiverse
 deb mirror://mirror.cvision.lab/mirrors.txt trusty-backports main restricted universe multiverse
 deb mirror://mirror.cvision.lab/mirrors.txt trusty-proposed main restricted universe multiverse
 
+###########################################################################################################
 ## SOURCES
 deb-src http://security.ubuntu.com/ubuntu trusty-security main restricted universe multiverse
 
@@ -29,6 +30,8 @@ deb-src mirror://mirrors.ubuntu.com/mirrors.txt trusty main restricted universe 
 deb-src mirror://mirrors.ubuntu.com/mirrors.txt trusty-updates main restricted universe multiverse
 deb-src mirror://mirrors.ubuntu.com/mirrors.txt trusty-proposed main restricted universe multiverse
 deb-src mirror://mirrors.ubuntu.com/mirrors.txt trusty-backports main restricted universe multiverse
+
+
 
 ```
 

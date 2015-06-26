@@ -80,6 +80,26 @@ deb [arch=amd64] mirror://st.cvision.lab/mirrors.txt trusty main restricted univ
 > http://security.ubuntu.com/ubuntu
 > real	0m28.324s
 
+**Ubuntu branches**
+The repository components are:
+
+**Main** - Officially supported software.
+**Restricted** - Supported software that is not available under a completely free license.
+**Universe** - Community maintained software, i.e. not officially supported software.
+**Multiverse** - Software that is not free.
+
+
+**"Important Security Updates (raring-security)".** Patches for security vulnerabilities in Ubuntu packages. They are managed by the Ubuntu Security Team and are designed to change the behavior of the package as little as possible -- in fact, the minimum required to resolve the security problem. As a result, they tend to be very low-risk to apply and all users are urged to apply security updates.
+
+**"Recommended Updates (raring-updates)".** Updates for serious bugs in Ubuntu packaging that do not affect the security of the system.
+
+**"Pre-released Updates (raring-proposed)".** The testing area for updates. This repository is recommended only to those interested in helping to test updates and provide feedback.
+
+**"Unsupported Updates (raring-backports)".** As the name states, these are unsupported new versions of packages which have been backported to an older release. Packages may contain new features, may introduce new interfaces, and bugs.
+
+For more information on backports, visit UbuntuBackports
+```
+
 **Clean packages list cache**
 
 ```bash

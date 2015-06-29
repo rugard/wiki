@@ -1,5 +1,26 @@
 # Git tips
 
+**Commit only part of a file in Git**
+
+```bash
+
+$ git add --patch fw
+# this will walk throught you changes in fw file and ask for a action
+# y - add to future commit
+# n - to exclude
+
+# If you what to view what to be commited, run:
+$ git checkout --
+
+# If all is well, commit
+$ git commit
+
+# To revert other changes of file and get clear branch(repo) run:
+$ git checkout HEAD -- fw
+
+```
+
+
 **Remove a branch on the remote (origin) server:**
 
 ```bash

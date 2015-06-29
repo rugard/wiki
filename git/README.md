@@ -4,6 +4,7 @@
 
 ```bash
 
+# step1
 $ git add --patch fw
 # this will walk throught you changes in fw file and ask for a action
 # y - add to future commit
@@ -14,6 +15,8 @@ $ git checkout --
 
 # If all is well, commit
 $ git commit
+
+# Go to step1 
 
 # To revert other changes of file and get clear branch(repo) run:
 $ git checkout HEAD -- fw

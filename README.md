@@ -29,6 +29,8 @@ git config --list
 ```
 # Setting up environment
 
-```
+```bash
+update-alternatives --list editor
+update-alternatives --set editor /usr/bin/vim.basic
 ```
 

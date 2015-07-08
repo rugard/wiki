@@ -8,4 +8,5 @@
 ```
 apt-get install linux-headers-`uname -r`
 apt-get install --reinstall iscsitarget-dkms
+service iscsitarget start
 ```

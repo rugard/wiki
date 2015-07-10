@@ -53,14 +53,14 @@
 
 Мы будем использовать штатную систему.
 
-Конфигурация через штатную систему может быть выполнена двумя методами:
+**Конфигурация через штатную систему может быть выполнена двумя методами:**
 
-1. Автоматически с помощью generic скрипта, например как описывает автор:
+Автоматически с помощью generic скрипта, например как описывает автор:
 
 There are exiting script to setup generic routes for all interfaces:
 http://serverfault.com/questions/487939/permanently-adding-source-policy-routing-rules/487962#487962
 
-2. Вручную для каждого интерфейса.
+**Вручную для каждого интерфейса.**
 
 Мы остановимся на варианте вручную, т.к. он более гибок.
 
@@ -70,12 +70,52 @@ http://serverfault.com/questions/487939/permanently-adding-source-policy-routing
 
 После того, как маршрутизация для IP на внеших интерфейсах настроена, переходим к вопросу маршрута по умолчанию.
 
+Без маршрута по умолчанию Интернет работать не будет.
+
+В случае использования dhcp для настройки одного из интерфейсов провайдеров, маршрут по умолчанию будет установлен через протокол dhcp. Например так: `default via 192.168.1.1 dev ethtop`
+
 Существует несколько методов определения маршрута по умолчанию:
 
 ### Статический маршрут в таблице main
 
+Например заданный ifupdown через interfaces опцией gateway или полученный через dhcp.
 
+Для установки маршрута по умолчанию вручную используйте команды:
+```bash
+# delete default route:
+ip route del default
 
-###
+# add default route:
 
+ip route add default dev ethtop
+# or
+ip route add default dev ethmiddle
+# or
+ip route add default dev ppp60
 
+```
+
+Мы будем использовать именно этот способ.
+
+### Using Load balancing:
+
+http://lartc.org/howto/lartc.rpdb.multiple-links.html
+
+```bash
+ip route add default scope global \
+nexthop via $P1 dev $IF1 weight 1 \
+nexthop via $P2 dev $IF2 weight 1
+```
+
+Не стабилен - не наш вариант.
+
+This will balance the routes over both providers. The weight parameters can be tweaked to favor one provider over the other.
+Note that balancing will not be perfect, as it is route based, and routes are cached. This means that routes to often-used sites will always be over the same provider.
+
+See also `gc_timeout` kernel setting fix route switching time.
+
+### Failover 
+
+Необходим скрипт для переключения шлюзов. Пример есть здесь:
+
+http://blog.hye.moe/post/2589

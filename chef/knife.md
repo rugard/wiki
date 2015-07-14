@@ -114,3 +114,35 @@ Create a vault
 ```
 knife vault create _ldap_cvision_lab srvreporeader '{"password":"srvreporeader_password" }' --admins admin -S name:*.cvision.lab
 ```
+
+# Knowing ISSUE's
+
+**Bootstrap from chef server error: ERROR: SSL Validation failure connecting to host: chef.cvision.lab**
+
+```bash
+root@gate:/home/srvadm# chef-client 
+Starting Chef Client, version 12.3.0
+Creating a new client identity for gate.cvision.lab using the validator key.
+[2015-07-14T15:43:21+03:00] ERROR: SSL Validation failure connecting to host: chef.cvision.lab - SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed
+
+================================================================================
+Chef encountered an error attempting to create the client "gate.cvision.lab"
+================================================================================
+
+[2015-07-14T15:43:21+03:00] FATAL: Stacktrace dumped to /var/chef/cache/chef-stacktrace.out
+Chef Client failed. 0 resources updated in 1.733779135 seconds
+[2015-07-14T15:43:21+03:00] ERROR: SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed
+[2015-07-14T15:43:21+03:00] FATAL: Chef::Exceptions::ChildConvergeError: Chef run process exited unsuccessfully (exit code 1)
+```
+
+Fix on client:
+
+```
+[2015-07-14T15:43:21+03:00] FATAL: Chef::Exceptions::ChildConvergeError: Chef run process exited unsuccessfully (exit code 1)
+root@gate# knife ssl fetch -c /etc/chef/client.rb
+WARNING: Certificates from chef.cvision.lab will be fetched and placed in your trusted_cert
+directory (/etc/chef/trusted_certs).
+```
+
+
+

@@ -2,6 +2,10 @@
 
 Следуя: http://habrahabr.ru/post/108690/
 
+Как работает CONNMARK и MARK. И о том, что iproute2 не видит CONNMARK-ки!
+
+http://nerdboys.com/2006/05/05/conning-the-mark-multiwan-connections-using-iptables-mark-connmark-and-iproute2/
+
 ## ip route tips
 
 `proto kernel` - задаеться автоматически ядром при задании IP адреса интерфейсу.

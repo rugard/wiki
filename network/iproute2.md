@@ -6,6 +6,12 @@
 
 http://nerdboys.com/2006/05/05/conning-the-mark-multiwan-connections-using-iptables-mark-connmark-and-iproute2/
 
+## How chains(tables) is work ?
+
+INPUT, FORWARD, and OUTPUT are separate. A packet will only hit one of the three chains.
+
+If the destination is to this server, it hits the INPUT chain. If its source is from this server, it hits OUTPUT. If its source and destination are both other machines—it's being routed through the server—then it hits the FORWARD chain.
+
 ## ip route tips
 
 `proto kernel` - задаеться автоматически ядром при задании IP адреса интерфейсу.

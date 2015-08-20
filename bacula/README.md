@@ -22,7 +22,9 @@ mysql> delete from webacula_users where login='root';
 mysql> INSERT INTO webacula_users (id, login, pwd, name, active, create_login, role_id) VALUES (1000, 'root', '$P$BbbdFp75Mwp5SkxzT114HL2g3jsn1t0', 'root', 1, NOW(), 1);
 ```
 
+## Additional notes about setup bacula in suntimes:
 
+1. don't forget to add bacula to libvirtd group, for success run virsh shutdown/start
 
 **How to restore from bacula without catalog, only from**
 

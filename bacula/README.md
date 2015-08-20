@@ -1,3 +1,10 @@
+**Test config and reload**
+
+```
+# bacula-dir -t -c /etc/bacula/bacula-dir.conf
+# service bacula-director reload
+```
+
 **View all schedules (not only at 24 hours forward)**
 
 ```

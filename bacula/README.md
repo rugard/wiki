@@ -1,4 +1,4 @@
-**View all schedules (not only at 24 hours forward) **
+**View all schedules (not only at 24 hours forward)**
 
 ```
 *status director days=365

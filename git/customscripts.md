@@ -55,7 +55,7 @@ git push https feature1_branch
 ```
 git checkout master
 git branch -d feature1_branch
-git pull
+git pull origin master
 ```
 
 ## 4. Generate ssh key

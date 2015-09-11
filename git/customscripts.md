@@ -42,6 +42,22 @@ git remote add https https://vskubriev@bitbucket.org/cvisionlabops/customscripts
 ```bash
 git push https master
 ```
+
+* you can done something changes with pull request model, as konovalov says.
+
+```
+git checkout -b feature1_branch
+git ci 
+git push https feature1_branch
+```
+* go to the bitbucket/github, create a pull request from feature1_branch to master, approve this pull request. this will be done to make a local master like a remote master.
+
+```
+git checkout master
+git branch -d feature1_branch
+git pull
+```
+
 ## 4. Generate ssh key
 
 ```bash

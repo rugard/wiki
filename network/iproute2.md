@@ -12,6 +12,12 @@ INPUT, FORWARD, and OUTPUT are separate. A packet will only hit one of the three
 
 If the destination is to this server, it hits the INPUT chain. If its source is from this server, it hits OUTPUT. If its source and destination are both other machines—it's being routed through the server—then it hits the FORWARD chain.
 
+**Logging**
+
+```
+iptables -t filter -I FORWARD -d 83.221.209.54 -p tcp -m tcp --sport 21 -j LOG --log-prefix "log11 "
+```
+
 ## About CONNMARK
 
 The most common CONNMARK setup consist in putting connection mark on packet when they arrive and saving packet mark to connection when they leave. In term of iptables, this translates as:

@@ -126,6 +126,10 @@ ip route add default dev ppp60
 
 http://lartc.org/howto/lartc.rpdb.multiple-links.html
 
+Почему соединения сбрасываются - подробное объяснение здесь:
+
+http://habrahabr.ru/post/267339/
+
 ```bash
 ip route add default scope global \
 nexthop via $P1 dev $IF1 weight 1 \

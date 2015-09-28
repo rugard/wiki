@@ -1,5 +1,9 @@
 # Input/Output sub system performance tests
 
+# TRUE TESTING with fio !!!
+
+http://habrahabr.ru/post/154235/
+
 ## Testing ssh, smb, nfs protocols
 
 Clear caches on client and server:

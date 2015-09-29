@@ -62,6 +62,35 @@ Are you sure? Type 'yes': yes
 exit
 ```
 
+```
+service target restart
+service target status
+
+root@zeus:/home/sysadmin# service target status
+[---------------------------] TCM/ConfigFS Status [----------------------------]
+\------> iblock_0
+	HBA Index: 1 plugin: iblock version: v4.1.0
+        \-------> cvl-ubuntu-1404
+        Status: ACTIVATED  Max Queue Depth: 128  SectorSize: 512  HwMaxSectors: 65528
+        iBlock device: dm-10  UDEV PATH: /dev/sysraid/cvl-ubuntu-1404  readonly: 0
+        Major: 252 Minor: 10  CLAIMED: IBLOCK
+        udev_path: /dev/sysraid/cvl-ubuntu-1404
+
+[---------------------------] LIO-Target Status [----------------------------]
+\------> iqn.2003-01.org.linux-iscsi.zeus.x8664:sn.a7bb98598ce0
+        \-------> tpgt_1  TargetAlias: LIO Target
+         TPG Status: ENABLED
+         TPG Network Portals:
+                 \-------> 192.168.128.2:3260
+         TPG Logical Units:
+                 \-------> lun_0/0b660b9e06 -> target/core/iblock_0/cvl-ubuntu-1404
+
+Target Engine Core ConfigFS Infrastructure v4.1.0 on Linux/x86_64 on 3.13.0-62-generic
+Datera Inc. iSCSI Target v4.1.0
+```
+
+Please do not pay attention to the different iqn's and serials.
+
 # test connection with server on 14.04
 
 ```

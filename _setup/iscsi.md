@@ -97,6 +97,8 @@ Please do not pay attention to the different iqn's and serials.
 apt-get install open-iscsi
 iscsiadm -m discovery -t st -p zeus
 iscsiadm -m node -l
+# doing what you need with virtual sdX disk
+service open-iscsi stop
 ```
 
 # fix iscsi server after kernel upgrade

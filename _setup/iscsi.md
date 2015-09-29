@@ -51,6 +51,13 @@ Entering new node /iscsi/iqn.2003-01.org.linux-iscsi.zeus.x8664:sn.c98254f34a49/
 Exit and save config:
 
 ```
+cd /
+
+/> saveconfig
+WARNING: Saving zeus current configuration to disk will overwrite your boot settings.
+The current target configuration will become the default boot config.
+Are you sure? Type 'yes': yes
+
 exit
 ```
 

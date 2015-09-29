@@ -36,6 +36,7 @@ Disabale auth:
 ```
 cd /iscsi/iqn.2003-01.org.linux-iscsi.zeus.x8664:sn.c98254f34a49/tpgt1/
 set attribute authentication=0
+set attribute generate_node_acls=1
 ```
 
 Create a portal 

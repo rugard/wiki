@@ -8,7 +8,7 @@
 knife diff
 ```
 
-** Show only names, and static for just roles, environments, cookbooks, and data bags.
+**Show only names, and static for just roles, environments, cookbooks, and data bags.**
 
 ```
 knife diff --name-only --repo-mode static

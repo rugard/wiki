@@ -5,12 +5,14 @@
 **Show differences beetween repo and server**
 
 ```bash
+# alias kd='knife diff'
 knife diff
 ```
 
 **Show only names, and static for just roles, environments, cookbooks, and data bags.**
 
 ```
+# alias kdonrms='knife diff --name-only --repo-mode static'
 knife diff --name-only --repo-mode static
 ```
 

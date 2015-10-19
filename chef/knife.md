@@ -15,6 +15,7 @@ knife diff
 # alias kdonrms='knife diff --name-only --repo-mode static'
 knife diff --name-only --repo-mode static
 ```
+> environments/_default.json is always will showing, because it is to be exist on the chef server always, it is read only object.
 
 **Edit node config in the server**
 

@@ -8,6 +8,12 @@
 knife diff
 ```
 
+** Show only names, and static for just roles, environments, cookbooks, and data bags.
+
+```
+knife diff --name-only --repo-mode static
+```
+
 **Edit node config in the server**
 
 ```bash

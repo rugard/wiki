@@ -64,3 +64,9 @@ git pull origin master
 ssh-keygen -t rsa -f customscripts_deploy_key -N ''
 xclip -sel clip <customscripts_deploy_key.pub
 ```
+
+## 5. Add build server remote
+
+```
+git remote add build git@build.cvision.lab:customscripts.git
+```

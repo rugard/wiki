@@ -130,3 +130,12 @@ Following: http://askubuntu.com/questions/131601/how-to-overcome-signature-verif
 ```
 
 
+## Install only security upgrades
+
+```bash
+unattended-upgrade --dry-run -d
+or
+sudo apt-get -s dist-upgrade | grep "^Inst" | grep -i securi | awk -F " " {'print $2'} | xargs sudo apt-get -y -q install
+```
+
+

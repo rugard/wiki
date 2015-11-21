@@ -90,6 +90,11 @@ aws                   fail2ban              perl
 
 Run a chef-client on nodes
 
+
+```bash
+knife ssh "roles:default_desktop_1404_rnd" "sudo chef-client" -i ~/.ssh/id_rsa -x sysadmin --no-host-key-verify
+```
+
 ```bash
 knife ssh "roles:default_server" "sudo chef-client>/dev/null;echo $?" -i ~/.ssh/id_rsa -x sysadmin --no-host-key-verify
 ```

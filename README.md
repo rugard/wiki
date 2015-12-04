@@ -15,7 +15,7 @@ git config --global alias.ci commit \
 git config --global alias.st status \
 git config --global alias.last 'log -1 HEAD' \
 git config --global alias.pom 'push origin master' \
-git config --global alias.aa 'add --all :/' \
+git config --global alias.aa 'add --all :/'
 
 git config user.name "Vladimir Skubriev" \
 git config user.email "<skubriev@cvisionlab.com>" \

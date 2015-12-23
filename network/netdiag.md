@@ -52,3 +52,9 @@ Monitoring eth0...    (press CTRL-C to stop)
 
 
 ```
+
+## Determine Public IP from command line
+
+```
+wget http://ipinfo.io/ip -qO -
+```

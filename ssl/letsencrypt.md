@@ -21,6 +21,8 @@ Next follow instructions in console.
 In a separate console run as root:
 
 ```bash
+service stop nginx
+
 mkdir -p /tmp/letsencrypt/public_html/.well-known/acme-challenge
 cd /tmp/letsencrypt/public_html
 printf "%s" Yb_lT6NYCI-XBelvY4c2iOhTHal-COpFDCiTpOXeQDw.puUDQkZNVJSazmRRopayEg7UtrzPSudZPKspaAVXcvk > .well-known/acme-challenge/Yb_lT6NYCI-XBelvY4c2iOhTHal-COpFDCiTpOXeQDw
@@ -29,6 +31,10 @@ $(command -v python2 || command -v python2.7 || command -v python2.6) -c \
 "import BaseHTTPServer, SimpleHTTPServer; \
 s = BaseHTTPServer.HTTPServer(('', 80), SimpleHTTPServer.SimpleHTTPRequestHandler); \
 s.serve_forever()"
+
+# ensure you press enter and server validated, CTRL+C
+
+service start nginx
 ```
 
 Check new/updated cert's in ```/etc/letsencrypt/live/```

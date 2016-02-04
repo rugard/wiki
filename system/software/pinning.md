@@ -1,9 +1,6 @@
 # Pinning packages in ubuntu
 
-We want to install lxc from trusty-backports. This packages has priority 100 by default.
-
-Then this packages cannot be installed (upgraded) by default.
-It's priority (100) less than default branches like `main mulriverse universe restricted`
+We want to install lxc from trusty-backports. This packages has priority 100 by default. System packages from `main mulriverse universe restricted` branches has 500 priority in default configuration.
 
 We can see this by:
 
@@ -11,10 +8,11 @@ We can see this by:
 $ apt-cache policy | less
 ```
 
-Therefore we need to install newer version of lxc with their dependencies, but install only dependencies from backports.
-We don't want to install all from backports (upgrade from backports by default all system packages).
+As we need only to upgrade such packages, like `lxc` but with their dependencies, we need to create two pin rules.
 
-Then we create pin file `/etc/apt/preferences.d/lxc`, like so:
+We shouldn't upgrade all system packages with their newer versions from backports branch.
+
+To achieve this we create pin file `/etc/apt/preferences.d/lxc`, like so:
 
 ```
 Package: lxc
@@ -26,10 +24,11 @@ Pin: release a=trusty-backports
 Pin-Priority: 500
 ```
 
-For quate backports packages priority to default system packages.
+For quate backports packages to default(500) system packages priority.
+
 Then the system will see newer versions and upgrade packages automatic.
 
-And upgrade system:
+Upgrade system:
 
 ```bash
 root@mimas:/home/skubriev# apt-get upgrade 

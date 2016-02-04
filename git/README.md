@@ -77,6 +77,13 @@ git show 6aad8f5f47de8b458f7c35b24f9cb099e5fc7e8b:backups/fullserverbackup.sh
 git checkout HEAD -- roles/mimas_cvision_lab.rb
 ```
 
+**Rollback file to revision from origin/jinja2. This is useful when you have merge conflicts and you know that merged branch has needed file state**
+
+```bash
+git checkout origin/jinja2 -- cvl_ldap.py
+```
+
+
 **Create patch from one commit and apply it on other clonned repo from desired remote git url, then commit**
 
 Follow: http://stackoverflow.com/questions/6658313/generate-a-git-patch-for-a-specific-commit

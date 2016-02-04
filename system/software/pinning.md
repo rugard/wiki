@@ -31,7 +31,7 @@ Then the system will see newer versions and upgrade packages automatic.
 Upgrade system:
 
 ```bash
-root@mimas:/home/skubriev# apt-get upgrade 
+$ sudo apt-get upgrade 
 Reading package lists... Done
 Building dependency tree       
 Reading state information... Done
@@ -45,4 +45,10 @@ The following packages will be upgraded:
 15 upgraded, 0 newly installed, 0 to remove and 4 not upgraded.
 Need to get 9,372 kB of archives.
 After this operation, 6,057 kB of additional disk space will be used.
+```
+
+Install lxd:
+
+```bash
+$ sudo apt-get install lxd
 ```

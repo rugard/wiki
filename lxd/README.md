@@ -34,3 +34,15 @@ lxc init images:ubuntu/xenial/amd64 xenial
 lxc stop trusty
 lxc stop xenial --force
 ```
+
+### Setup a container autostart
+
+```bash
+lxc config get trusty boot.autostart
+boot.autostart:
+
+lxc config set trusty boot.autostart true
+
+lxc config get trusty boot.autostart
+boot.autostart: true
+```

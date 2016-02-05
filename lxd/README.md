@@ -1,5 +1,9 @@
 # Using LXD
 
+### Install on 14.04
+
+https://github.com/rugard/wiki/blob/master/system/software/pinning.md
+
 Install bash_completion profile:
 
 ```bash

@@ -23,6 +23,14 @@ lxc remote add images images.linuxcontainers.org
 lxc image list images:
 ```
 
+### Install `lxcfs` on host
+
+To pass error with starting up systemd in xenial.
+
+```bash
+sudo apt-get install lxcfs
+```
+
 ### Start a new vm
 
 ```

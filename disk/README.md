@@ -1,5 +1,11 @@
 bad# Control disk devices.
 
+## Re-read partition table
+
+```
+partprobe
+partprobe /dev/sdb
+```
 ## Recovery
 
 ```bash

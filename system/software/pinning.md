@@ -1,5 +1,19 @@
 # Pinning packages in ubuntu
 
+## General help
+
+```
+man apt_preferences
+```
+
+## Upgrading memtest86+ in trusty from xenial
+
+see charon 
+
+
+
+## Upgrading lxc in trusty for install lxd
+
 We want to install lxc from trusty-backports. This packages has priority 100 by default. System packages from `main mulriverse universe restricted` branches has 500 priority in default configuration.
 
 We can see this by:

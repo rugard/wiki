@@ -58,3 +58,26 @@ lxc config set trusty boot.autostart true
 lxc config get trusty boot.autostart
 boot.autostart: true
 ```
+
+### Change lxd backend to btrfs
+
+Note: 
+
+> The btrfs backend is automatically used if /var/lib/lxd is on a btrfs filesystem.
+
+```bash
+lvcreate -nlxd -L 50G mdata
+mkfs.btrfs /dev/mdata/lxd
+mkdir /mnt/lxd
+mount /dev/mdata/lxd /mnt/lxd/
+
+service lxd stop
+cp -a /var/lib/lxd/* /mnt/lxd/
+rm -rf /var/lib/lxd/*
+umount /mnt/lxd
+echo "/dev/mdata/lxd /var/lib/lxd btrfs defaults 0 2" >> /etc/fstab
+mount -a
+ll /var/lib/lxd/
+service lxd start
+lxc init images:ubuntu/xenial/amd64 xenial
+```

@@ -1,5 +1,9 @@
 # Using LXD
 
+### Command line interface
+
+https://github.com/lxc/lxd/blob/master/specs/command-line-user-experience.md
+
 ### Install on 14.04
 
 https://github.com/rugard/wiki/blob/master/system/software/pinning.md
@@ -22,6 +26,14 @@ lxc profile edit default
 lxc remote add images images.linuxcontainers.org
 lxc image list images:
 ```
+
+### Publishing images
+
+```
+lxc stop ldap --force
+lxc publish ldap --public --alias=ldap/bootstraped
+```
+
 
 ### Install `lxcfs` on host
 

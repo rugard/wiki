@@ -27,6 +27,12 @@ lxc remote add images images.linuxcontainers.org
 lxc image list images:
 ```
 
+**Create alias to use local (already downloaded) image:**
+
+```
+lxc image alias create ubuntu/xenial/amd64 e99dd6437665
+```
+
 ### Publishing images
 
 ```

@@ -24,4 +24,21 @@ view first raw db:
 ```bash
 less /etc/ldap/slapd.d/cn\=config/olcDatabase\=\{1\}hdb.ldif
 ```
+### remove default anonymous read all entries access:
 
+`remove-anonymous-default-access.ldif:`
+
+```
+dn: olcDatabase={1}mdb,cn=config
+changetype: modify
+delete: olcAccess
+olcAccess: {4}
+```
+
+```
+ldapmodify -Y EXTERNAL -H ldapi:/// -f remove.ldif 
+SASL/EXTERNAL authentication started
+SASL username: gidNumber=0+uidNumber=0,cn=peercred,cn=external,cn=auth
+SASL SSF: 0
+modifying entry "olcDatabase={1}mdb,cn=config"
+```

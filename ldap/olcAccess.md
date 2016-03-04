@@ -33,12 +33,14 @@ olcAccess: {0}to * by dn.exact=gidNumber=0+uidNumber=0,cn=peercred,cn=extern
  al,cn=auth manage by * break
 olcAccess: {1}to * by dn.exact=gidNumber=33+uidNumber=33,cn=peercred,cn=exte
  rnal,cn=auth manage by * break
-olcAccess: {2}to attrs=userPassword by self write by anonymous auth by * non
+olcAccess: {2}to *  by dn="cn=skubriev,ou=users,dc=cvision,dc=lab" manage
+ by * break
+olcAccess: {3}to attrs=userPassword by self write by anonymous auth by * non
  e
-olcAccess: {3}to attrs=shadowLastChange by self write by * read
-olcAccess: {4}to dn.subtree="cn=CVISION.LAB,dc=cvision,dc=lab" by * none
-olcAccess: {5}to * by * read
+olcAccess: {4}to attrs=shadowLastChange by self write by * read
+olcAccess: {5}to dn.subtree="cn=CVISION.LAB,dc=cvision,dc=lab" by * none
+olcAccess: {6}to * by * read
 ```
 
-Так как мне нужно было запретить доступ к dn `cn=CVISION.LAB,dc=cvision,dc=lab`, мне пришлось вставить правило перед `{5}`
-Тот кто авторизовался ранее `{4}` правила, например root или пользователь с gid=33 получит доступ ко всему. И это ограничение его не коснеться.
+Так как мне нужно было запретить доступ к dn `cn=CVISION.LAB,dc=cvision,dc=lab`, мне пришлось вставить правило перед `{6}`
+Тот кто авторизовался ранее `{5}` правила, например root или пользователь с gid=33 получит доступ ко всему. И это ограничение его не коснеться.

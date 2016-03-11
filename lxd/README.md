@@ -99,3 +99,37 @@ ll /var/lib/lxd/
 service lxd start
 lxc init images:ubuntu/xenial/amd64 xenial
 ```
+
+### Setting up client and server to communicate
+
+See: https://github.com/lxc/lxd
+
+#### Setting up server
+
+```bash
+root@server# apt-get install lxd
+root@server# lxc config get core.trust_password
+root@server# lxc config set core.trust_password asdf
+root@server# lxc config get core.trust_password
+
+root@server# netstat -alnp | grep 8443
+root@server# lxc config get core.https_address
+root@server# lxc config set core.https_address 0.0.0.0
+root@server# lxc config get core.https_address
+root@server# service lxd restart
+```
+
+#### Setting up client
+
+```bash
+user@client$ lxc remote list
+user@client$ lxc remote add gate gate.cvision.lab --password asdf
+```
+
+#### Remove password on server
+
+```bash
+root@server# lxc config set core.trust_password ""
+root@server# service lxd restart
+```
+

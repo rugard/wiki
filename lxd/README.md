@@ -133,3 +133,18 @@ root@server# lxc config set core.trust_password ""
 root@server# service lxd restart
 ```
 
+### Copy images
+
+`lxc image copy` is not implemented now.
+
+https://github.com/lxc/lxd/issues/553
+https://github.com/lxc/lxd/issues/1510
+
+Therefore we use `export/scp/import`
+
+```
+lxc image export ldap/smb/latest /tmp/ldap-smb-latest.tgz
+scp /tmp/ldap-smb-latest.tgz sysadmin@gate:
+lxc image import ldap-smb-latest.tgz
+```
+

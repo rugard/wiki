@@ -146,5 +146,10 @@ Therefore we use `export/scp/import`
 lxc image export ldap/smb/latest /tmp/ldap-smb-latest.tgz
 scp /tmp/ldap-smb-latest.tgz sysadmin@gate:
 lxc image import ldap-smb-latest.tgz
+
+lxc image alias create ldap/smb/latest c6223cee201c
+lxc init ldap/smb/latest ldap
+lxc config set ldap boot.autostart true
+lxc start ldap
 ```
 

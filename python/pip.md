@@ -2,14 +2,20 @@
 
 ## Upgrade pip on a fresh installed ubuntu
 
-Short commmand list:
+System default pip is obsolete in ubuntu. To upgrade use following commands:
+
+Short commmand list to achive a goal ;) :
 
 ```
 sudo pip install -U pip
 hash -r
 ```
 
-Detail:
+In the details:
+
+When you upgrade pip, it will install new pip version in `/usr/local/bin/`.
+Since `/usr/local/bin/` occurs early in $PATH, then system will be using upgraded version.
+But we need to rehash system path with `hash -r`
 
 ```
 which pip

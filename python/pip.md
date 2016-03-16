@@ -15,7 +15,7 @@ In the details:
 
 When you upgrade pip, it will install new pip version in `/usr/local/bin/`.
 Since `/usr/local/bin/` occurs early in $PATH, then system will be using upgraded version.
-But we need to rehash system path with `hash -r`
+But we need to rehash system path with `hash -r` for apply changes in current terminal.
 
 ```
 which pip

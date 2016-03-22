@@ -12,22 +12,12 @@ openssl genrsa -des3 -out ca.key 4096
 openssl req -new -x509 -days 365 -key ca.key -out ca.crt
 ```
 
-**Create the Server Key, CSR, and Certificate**
-
-```bash
-openssl genrsa -des3 -out server.key 1024
-openssl req -new -key server.key -out server.csr
-```
-
-
-
-**Generate client keys without password protections**
+**Generate server and clients keys without password protections**
 
 > Without `-des3`, because we don't proctect private client key with password
 
-> Attention! Clients has `02,`03`,`04` serial's
-
 ```bash
+openssl genrsa -out server.key 1024
 openssl genrsa -out backup-ldap.key 1024
 openssl genrsa -out backup-dns.key 1024
 openssl genrsa -out backup-dhcp.key 1024
@@ -36,12 +26,12 @@ openssl genrsa -out backup-dhcp.key 1024
 **Creating CSR's**
 
 ```
+openssl req -new -key server.key -out server.csr
 openssl req -new -key backup-ldap.key -out backup-ldap.csr
 openssl req -new -key backup-dns.key -out backup-dns.csr
 openssl req -new -key backup-dhcp.key -out backup-dhcp.csr
 ```
 ****
-
 
 **Sing all certs: server and clients**
 

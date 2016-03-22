@@ -19,7 +19,7 @@ openssl req -new -key server.key -out server.csr
 
 **We're self signing our own server cert here.  This is a no-no in production.**
 
-> Attention
+> Attention! Server has `01` serial
 
 ```bash
 openssl x509 -req -days 3650 -in server.csr -CA ca.crt -CAkey ca.key -set_serial 01 -out server.crt
@@ -28,6 +28,8 @@ openssl x509 -req -days 3650 -in server.csr -CA ca.crt -CAkey ca.key -set_serial
 ****
 
 > Without `-des3`, because we don't proctect private client key with password
+
+> Attention! Clients has `02,`03`,`04` serial's
 
 ```bash
 openssl genrsa -out backup-ldap.key 1024

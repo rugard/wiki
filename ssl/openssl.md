@@ -17,15 +17,9 @@ openssl genrsa -des3 -out server.key 1024
 openssl req -new -key server.key -out server.csr
 ```
 
-**We're self signing our own server cert here.  This is a no-no in production.**
 
-> Attention! Server has `01` serial
 
-```bash
-openssl x509 -req -days 3650 -in server.csr -CA ca.crt -CAkey ca.key -set_serial 01 -out server.crt
-```
-
-****
+**Generate client keys without password protections**
 
 > Without `-des3`, because we don't proctect private client key with password
 
@@ -33,4 +27,27 @@ openssl x509 -req -days 3650 -in server.csr -CA ca.crt -CAkey ca.key -set_serial
 
 ```bash
 openssl genrsa -out backup-ldap.key 1024
+openssl genrsa -out backup-dns.key 1024
+openssl genrsa -out backup-dhcp.key 1024
+```
+
+**Creating CSR's**
+
+```
+openssl req -new -key backup-ldap.key -out backup-ldap.csr
+openssl req -new -key backup-dns.key -out backup-dns.csr
+openssl req -new -key backup-dhcp.key -out backup-dhcp.csr
+```
+****
+
+
+**Sing all certs**
+
+> Attention! Server has `01` serial
+
+```bash
+openssl x509 -req -days 3650 -in server.csr -CA ca.crt -CAkey ca.key -set_serial 01 -out server.crt
+```
+```
+openssl x509 -req -days 3650 -in server.csr -CA ca.crt -CAkey ca.key -set_serial 01 -out server.crt
 ```

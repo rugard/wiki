@@ -2,6 +2,8 @@
 
 ### Using openssl to create a self signed certificates for authorization http clients on server.
 
+Follow http://nategood.com/client-side-certificate-authentication-in-ngi
+
 > This article does not include doc's about crl list for revoke certificates.
 
 For adjust openssl with default values. See `/etc/openssl.cnf`

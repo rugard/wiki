@@ -56,11 +56,10 @@ server=ntp.cvision.lab clock=daa4c071.81fd9732  Tue, Mar 29 2016 11:50:57.507
 server=localhost clock=daa4c071.742ca86d  Tue, Mar 29 2016 11:50:57.453
 ```
 
-# Sync with ssh
+# Synchronize date and time with a server over ssh
 
 > using -u is better for standardizing date output and timezones, for servers in different timezones.
 
 ```
 date --set="$(ssh user@server 'date -u')"
-Synchronize date and time with a server over ssh
 ```

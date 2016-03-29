@@ -42,3 +42,17 @@ root@mimas:/home/skubriev# ntpdate-debian
 28 Mar 18:24:28 ntpdate[17045]: the NTP socket is in use, exiting
 ```
 
+## compare time on local and other my own servers (restrictions is disabled)
+
+> public servers does not respond to this query type, because of restrictions
+
+> to allow this requests over network, comment string like below:
+
+> `#restrict default kod notrap nomodify nopeer noquery`
+
+```
+skubriev@mimas:~$ ntpq -c "rv 0 clock" ntp.cvision.lab localhost
+server=ntp.cvision.lab clock=daa4c071.81fd9732  Tue, Mar 29 2016 11:50:57.507
+server=localhost clock=daa4c071.742ca86d  Tue, Mar 29 2016 11:50:57.453
+```
+

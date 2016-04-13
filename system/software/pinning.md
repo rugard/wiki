@@ -65,5 +65,5 @@ Install lxd:
 
 ```bash
 $ sudo apt-get install lxd
-sudo usermod -aG lxd sysadmin
+$ sudo usermod -aG lxd sysadmin
 ```

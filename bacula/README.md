@@ -1,3 +1,57 @@
+**View job details**
+
+```
+*show job=BackupBaculaCatalog
+Job: name=BackupBaculaCatalog JobType=66 level=Full Priority=10 Enabled=1
+     MaxJobs=1 Resched=0 Times=0 Interval=1,800 Spool=0 WritePartAfterJob=1
+     Accurate=0
+  --> Client: name=backup address=backup.cvision.lab FDport=9102 MaxJobs=1
+      JobRetention=6 months  FileRetention=2 months  AutoPrune=1
+  --> Catalog: name=bacula-catalog address=localhost DBport=0 db_name=bacula
+      db_driver=*None* db_user=bacula MutliDBConn=0
+  --> FileSet: name=BaculaCatalog
+      O M
+      N
+      I /var/lib/bacula/bacula.sql
+      N
+  --> Schedule: name=WeeklyCycleAfterAllBackups
+  --> Run Level=Full
+      hour=6 
+      mday=0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 
+      month=0 1 2 3 4 5 6 7 8 9 10 11 
+      wday=0 1 2 3 4 5 6 
+      wom=0 1 2 3 4 
+      woy=0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 
+      mins=30
+  --> Storage: name=BackupServerBaculaBackupStorage address=backup.cvision.lab SDport=9103 MaxJobs=1
+      DeviceName=BaculaBackupStorage MediaType=File StorageId=1
+ --> RunScript
+  --> Command=/etc/bacula/scripts/make_catalog_backup bacula bacula pass backup.cvision.lab
+  --> Target=%c
+  --> RunOnSuccess=1
+  --> RunOnFailure=0
+  --> FailJobOnError=1
+  --> RunWhen=2
+ --> RunScript
+  --> Command=rm /var/lib/bacula/bacula.sql
+  --> Target=%c
+  --> RunOnSuccess=1
+  --> RunOnFailure=0
+  --> FailJobOnError=1
+  --> RunWhen=1
+  --> Pool: name=BaculaCatalog PoolType=Backup
+      use_cat=1 use_once=1 cat_files=1
+      max_vols=30 auto_prune=1 VolRetention=10 mins 
+      VolUse=0 secs recycle=1 LabelFormat=BaculaCatalog
+      CleaningPrefix=*None* LabelType=0
+      RecyleOldest=1 PurgeOldest=0 ActionOnPurge=0
+      MaxVolJobs=0 MaxVolFiles=0 MaxVolBytes=0
+      MigTime=0 secs MigHiBytes=0 MigLoBytes=0
+      JobRetention=0 secs FileRetention=0 secs
+  --> Messages: name=Standard
+      mailcmd=/bin/bash /usr/local/sbin/customscripts/mail/msmtp-bacula-frontend.sh %i %t %e %c %r %n %l
+```
+
 **Test config and reload**
 
 ```

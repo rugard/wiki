@@ -153,3 +153,17 @@ lxc config set ldap boot.autostart true
 lxc start ldap
 ```
 
+### Upgrade `lxd` from rc to 2.0
+
+Press OK on the warning: `lxcbr0 is being replaced by lxdbr0`
+
+Then run 
+
+```
+dpkg-reconfigure -p medium lxd
+```
+Select `br-eth0` and 
+
+!!! Answer 'No' to configuring ipv4 and ipv6.
+
+

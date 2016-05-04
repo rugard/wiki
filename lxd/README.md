@@ -162,7 +162,11 @@ Then run
 ```
 dpkg-reconfigure -p medium lxd
 ```
-Select `br-eth0` and 
+
+Would you like to setup a network bridge for LXD containers now? NO
+Do you want to use an existing bridge? YES
+
+Bridge interface name: br-eth0
 
 !!! Answer 'No' to configuring ipv4 and ipv6.
 

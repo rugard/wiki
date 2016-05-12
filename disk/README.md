@@ -6,6 +6,18 @@ bad# Control disk devices.
 partprobe
 partprobe /dev/sdb
 ```
+
+## Clear GPT partition.
+
+Remeber, the GPT is both at the beginning and end of the disk. You must remove both of them.
+
+```
+disk=sdc; dd if=/dev/zero of=/dev/$disk bs=4096 count=35 seek=$(($(blockdev --getsz /dev/$disk)*512/4096 - 35))
+disk=sdc; sgdisk --clear /dev/$disk
+```
+
+Details: http://www.noah.org/wiki/Dd_-_Destroyer_of_Disks#Erase_GPT_.28GUID_Partition_Table.29
+
 ## Recovery
 
 ```bash

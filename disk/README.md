@@ -13,9 +13,8 @@ Remeber, the GPT is both at the beginning and end of the disk. You must remove b
 
 ```
 disk=sdc; dd if=/dev/zero of=/dev/$disk bs=4096 count=35 seek=$(($(blockdev --getsz /dev/$disk)*512/4096 - 35))
-# twice
-disk=sdc; sgdisk --clear /dev/$disk
-disk=sdc; sgdisk --clear /dev/$disk
+# or
+disk=sdc; sgdisk -Z /dev/$disk
 ```
 
 Details: http://www.noah.org/wiki/Dd_-_Destroyer_of_Disks#Erase_GPT_.28GUID_Partition_Table.29

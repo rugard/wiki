@@ -18,6 +18,12 @@ root@pdc:/etc/bind# nsupdate -k /etc/bind/rndc.key
 > send
 ```
 
+```bash
+> update delete clientx.cvision.lab dhcid
+> send
+```
+
+
 ## Lookups with host
 
 ```bash

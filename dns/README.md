@@ -10,8 +10,7 @@ root@pdc:/home/sysadmin# nsupdate -k /etc/bind/rndc.key
 root@pdc:/etc/bind# nsupdate -k /etc/bind/rndc.key
 > update delete 8.128.168.192.in-addr.arpa ptr owncloud.cvision.lab.
 > send
-
-```bash
+```
 
 ```bash
 > update add 8.128.168.192.in-addr.arpa 900 ptr service.cvision.lab.

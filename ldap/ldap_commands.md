@@ -4,6 +4,14 @@
 ldapsearch -Y EXTERNAL -H ldapi:/// -b ou=users,dc=cvision,dc=lab "(cn=*)" | sed '/^# search result/,$d' | grep -v ^# | less
 ```
 
+Anonymous bind 
+
+> -x - tells ldapsearch to perform a simple_authentication (yes, you need this even for anonymous bind)
+
+```
+ldapsearch -h ldap -x -p 389 -b ou=users,dc=cvision,dc=lab "(cn=*)" | sed '/^# search result/,$d' | grep -v ^# | less
+```
+
 sssd request for search users
 
 must get users by anonymous bind (on clients where sssd should be installed):

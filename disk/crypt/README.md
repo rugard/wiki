@@ -17,7 +17,9 @@ cryptsetup luksClose family_backup
 cryptsetup status family_backup
 ```
 
-Reinstall ag notebook, install a system only to root. Do not touch home partition !!!
+## Reinstall ag notebook
+
+install a system only to root. Do not touch home partition !!!
 Set the user name as existing ag username!
 
 Next install cryptsetup in fresh installed ubuntu.

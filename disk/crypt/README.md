@@ -19,6 +19,8 @@ cryptsetup status family_backup
 
 ## Reinstall ag notebook
 
+Following: http://askubuntu.com/questions/21025/mount-a-luks-partition-at-boot
+
 install a system only to root. Do not touch home partition !!!
 Set the user name as existing ag username!
 
@@ -40,3 +42,5 @@ And add the following to /etc/fstab:
 /dev/mapper/home /home ext4 rw 0 0
 ```
 Now I get two password prompts at boot, as needed.
+
+AND THAT's all that I need.

@@ -113,3 +113,68 @@ apt-get install linux-headers-`uname -r`
 apt-get install --reinstall iscsitarget-dkms
 service iscsitarget start
 ```
+
+## Adding cvl-ubuntu-1604
+
+```
+targetcli
+cd /backstores/iblock/
+```
+
+List existing:
+
+```
+/backstores/iblock> ls
+o- iblock ................................................... [1 Storage Object]
+  o- cvl-ubuntu-1404 .................. [/dev/sysraid/cvl-ubuntu-1404 activated]
+```
+
+Create a new one:
+
+```
+/backstores/iblock> create cvl-ubuntu-1604 /dev/sysraid/cvl-ubuntu-1604
+Generating a wwn serial.
+Created iblock storage object cvl-ubuntu-1604 using /dev/sysraid/cvl-ubuntu-1604.
+Entering new node /backstores/iblock/cvl-ubuntu-1604
+```
+
+Create a LUN:
+
+```
+/backstores/i...l-ubuntu-1604> cd /iscsi/iqn.2003-01.org.linux-iscsi.zeus.x8664:sn.a7bb98598ce0/tpgt1/luns/
+/iscsi/iqn.20...e0/tpgt1/luns> ls
+o- luns ................................................................ [1 LUN]
+  o- lun0 .............. [iblock/cvl-ubuntu-1404 (/dev/sysraid/cvl-ubuntu-1404)]
+/iscsi/iqn.20...e0/tpgt1/luns> create /backstores/iblock/cvl-ubuntu-1604 
+Selected LUN 1.
+Successfully created LUN 1.
+Entering new node /iscsi/iqn.2003-01.org.linux-iscsi.zeus.x8664:sn.a7bb98598ce0/tpgt1/luns/lun1
+```
+
+Disable auth (skipping, already setuped early):
+
+Create a portal(skipping, already setuped early):
+
+Save config and Exit:
+
+```
+/iscsi/iqn.20...tpgt1/portals> cd /
+/> saveconfig 
+WARNING: Saving zeus current configuration to disk will overwrite your boot settings.
+The current target configuration will become the default boot config.
+Are you sure? Type 'yes': yes
+Making backup of srpt/ConfigFS with timestamp: 2016-06-03_15:20:38.394566
+Successfully updated default config /etc/target/srpt_start.sh
+Making backup of qla2xxx/ConfigFS with timestamp: 2016-06-03_15:20:38.394566
+Successfully updated default config /etc/target/qla2xxx_start.sh
+Making backup of loopback/ConfigFS with timestamp: 2016-06-03_15:20:38.394566
+Successfully updated default config /etc/target/loopback_start.sh
+Making backup of fc/ConfigFS with timestamp: 2016-06-03_15:20:38.394566
+Successfully updated default config /etc/target/fc_start.sh
+Making backup of LIO-Target/ConfigFS with timestamp: 2016-06-03_15:20:38.394566
+Generated LIO-Target config: /etc/target/backup/lio_backup-2016-06-03_15:20:38.394566.sh
+Making backup of Target_Core_Mod/ConfigFS with timestamp: 2016-06-03_15:20:38.394566
+Generated Target_Core_Mod config: /etc/target/backup/tcm_backup-2016-06-03_15:20:38.394566.sh
+Successfully updated default config /etc/target/lio_start.sh
+Successfully updated default config /etc/target/tcm_start.sh
+```

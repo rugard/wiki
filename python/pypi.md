@@ -62,4 +62,4 @@ I can store your PyPI login so future submissions will be faster.
 Save your login (y/N)?y
 ```
 
-This will be published package version to main pipy index.
+This will be published package version to main pipy index and save credentials in `~/.pypirc`

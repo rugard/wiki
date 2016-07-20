@@ -1,6 +1,25 @@
 # Using openssl
 
-### Using openssl to create a self signed certificates for authorization http clients on server.
+## Encrypt existing openvpn private key:
+
+```
+cd /etc/openvpn/keys
+export user="selivanov"
+mkdir $user
+cp $user.* $user/
+cp ca.crt $user/
+cd $user
+rm $user.tar.gz
+rm $user.csr
+
+openssl rsa -aes256 -in $user.key -out $user.key
+
+tar cvzf $user.gz *
+scp $user.tar.gz skubriev@mimas:/tmp/
+```
+
+
+## Using openssl to create a self signed certificates for authorization http clients on server.
 
 Follow http://nategood.com/client-side-certificate-authentication-in-ngi
 

@@ -40,6 +40,14 @@ knife node show zeus.cvision.lab -a postfix.main.mydestination
 
 See http://jtimberman.housepub.org/blog/2014/12/11/chef-12-fix-untrusted-self-sign-certs/
 
+new note (only one command)
+
+```
+knife ssl fetch -s "https://chef.cvision.lab:443" -c /etc/chef/client.rb
+```
+
+old note
+
 ```bash
 knife ssl fetch https://chef.cvision.lab -c /etc/chef/client.rb
 sudo mkdir /etc/chef/trusted_certs

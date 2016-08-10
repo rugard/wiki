@@ -178,3 +178,19 @@ Generated Target_Core_Mod config: /etc/target/backup/tcm_backup-2016-06-03_15:20
 Successfully updated default config /etc/target/lio_start.sh
 Successfully updated default config /etc/target/tcm_start.sh
 ```
+## Note aboout write protected devices:
+
+You must disable parameter `demo_mode_write_protect`, which default value is 1 (enabled)
+
+Prooflink - official documentation: http://linux-iscsi.org/wiki/ISCSI
+
+```
+/iscsi/iqn.20...b092056/tpgt1> get attribute demo_mode_write_protect
+demo_mode_write_protect=1 
+
+/iscsi/iqn.20...b092056/tpgt1> set attribute demo_mode_write_protect=0
+Parameter demo_mode_write_protect is now '0'.
+
+/iscsi/iqn.20...b092056/tpgt1> cd /
+/> saveconfig 
+```

@@ -38,3 +38,10 @@ mdadm -Avfs
 mdadm --monitor --scan --test --oneshot
 ```
 
+### Re-add a faulty disk to rebuild array after i/o error
+
+> -r - removes disk
+> -a - add disk 
+```
+mdadm /dev/md4 -r /dev/sdc1 -a /dev/sdc1
+```

@@ -180,9 +180,43 @@ Successfully updated default config /etc/target/tcm_start.sh
 ```
 ## Note aboout write protected devices:
 
-You must disable parameter `demo_mode_write_protect`, which default value is 1 (enabled)
+You can see that LUNs on target is not write protected (`readonly: 0` and `readonly: 0`):
 
-Prooflink - official documentation: http://linux-iscsi.org/wiki/ISCSI
+But something is brokes write access when we connected to target and tries to copy partitions.
+
+```
+root@zeus:/# service target status
+[---------------------------] TCM/ConfigFS Status [----------------------------]
+\------> iblock_1
+	HBA Index: 2 plugin: iblock version: v4.1.0
+        \-------> cvl-ubuntu-1604
+        Status: ACTIVATED  Max Queue Depth: 128  SectorSize: 512  HwMaxSectors: 65528
+        iBlock device: dm-14  UDEV PATH: /dev/sysraid/cvl-ubuntu-1604  readonly: 0
+        Major: 252 Minor: 14  CLAIMED: IBLOCK
+        udev_path: /dev/sysraid/cvl-ubuntu-1604
+\------> iblock_0
+	HBA Index: 1 plugin: iblock version: v4.1.0
+        \-------> cvl-ubuntu-1404
+        Status: ACTIVATED  Max Queue Depth: 128  SectorSize: 512  HwMaxSectors: 65528
+        iBlock device: dm-9  UDEV PATH: /dev/sysraid/cvl-ubuntu-1404  readonly: 0
+        Major: 252 Minor: 9  CLAIMED: IBLOCK
+        udev_path: /dev/sysraid/cvl-ubuntu-1404
+
+[---------------------------] LIO-Target Status [----------------------------]
+\------> iqn.2003-01.org.linux-iscsi.zeus.x8664:sn.99aebb092056
+        \-------> tpgt_1  TargetAlias: LIO Target
+         TPG Status: ENABLED
+         TPG Network Portals:
+                 \-------> 192.168.128.2:3260
+         TPG Logical Units:
+                 \-------> lun_0/a9483fb9f4 -> target/core/iblock_0/cvl-ubuntu-1404
+                 \-------> lun_1/0f652582b5 -> target/core/iblock_1/cvl-ubuntu-1604
+
+Target Engine Core ConfigFS Infrastructure v4.1.0 on Linux/x86_64 on 3.13.0-93-generic
+Datera Inc. iSCSI Target v4.1.0
+```
+
+You must disable parameter `demo_mode_write_protect`, which default value is 1 (enabled)
 
 ```
 /iscsi/iqn.20...b092056/tpgt1> get attribute demo_mode_write_protect
@@ -194,3 +228,5 @@ Parameter demo_mode_write_protect is now '0'.
 /iscsi/iqn.20...b092056/tpgt1> cd /
 /> saveconfig 
 ```
+
+Prooflink - official documentation: http://linux-iscsi.org/wiki/ISCSI

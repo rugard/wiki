@@ -1,0 +1,5 @@
+
+
+```
+kvm -cdrom ~/Downloads/ReactOS-0.4.2-live.iso -vga std -localtime -net nic,model=ne2k_pci -net user -m 128
+```

@@ -6,6 +6,11 @@ I has succesfully setup let's encrypt on gate with following article **under roo
 
 http://habrahabr.ru/post/270273/
 
+Links from goncharov:
+
+https://habrahabr.ru/post/279695/
+https://habrahabr.ru/post/304174/
+
 To update a cert or generate a new one use following alg:
 
 ```bash

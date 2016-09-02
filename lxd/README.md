@@ -1,5 +1,9 @@
 # Using LXD
 
+### Russian article about lxd on habr
+
+https://habrahabr.ru/post/308400/
+
 ### Command line interface
 
 https://github.com/lxc/lxd/blob/master/specs/command-line-user-experience.md

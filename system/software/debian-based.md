@@ -6,10 +6,11 @@ New style with local mirror:
 
 **xenial**
 
+> `extras` is removed in 16.04
+
 ```
 deb http://security.ubuntu.com/ubuntu xenial-security main restricted universe multiverse
 deb http://archive.canonical.com/ubuntu xenial partner
-deb http://extras.ubuntu.com/ubuntu xenial main
 deb mirror://mirror.cvision.lab/mirrors.txt xenial main restricted universe multiverse
 deb mirror://mirror.cvision.lab/mirrors.txt xenial-updates main restricted universe multiverse
 deb mirror://mirror.cvision.lab/mirrors.txt xenial-backports main restricted universe multiverse
@@ -18,7 +19,6 @@ deb mirror://mirror.cvision.lab/mirrors.txt xenial-proposed main restricted univ
 deb-src http://security.ubuntu.com/ubuntu xenial-security main restricted universe multiverse
 
 deb-src http://archive.canonical.com/ubuntu xenial partner
-deb-src http://extras.ubuntu.com/ubuntu xenial main
 
 deb-src mirror://mirrors.ubuntu.com/mirrors.txt xenial main restricted universe multiverse
 deb-src mirror://mirrors.ubuntu.com/mirrors.txt xenial-updates main restricted universe multiverse

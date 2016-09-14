@@ -42,6 +42,9 @@ See http://jtimberman.housepub.org/blog/2014/12/11/chef-12-fix-untrusted-self-si
 
 new note (only one command)
 
+> If you have old chef 11-x version, you may need to update chef-client (for ssl command) via omnibus, before `knife ssl fetch`
+> curl -L https://omnitruck.chef.io/install.sh | sudo bash
+
 ```
 knife ssl fetch -s "https://chef.cvision.lab:443" -c /etc/chef/client.rb
 ```

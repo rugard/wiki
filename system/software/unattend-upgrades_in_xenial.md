@@ -2,9 +2,25 @@
 
 В 16.04 не используется cron для запуска unattend-upgrades, точнее `/usr/lib/apt/apt.systemd.daily`, который ранее был `/etc/cron.daily/apt`
 
-Теперь вместо крона используется systemd timer `/etc/systemd/system/timers.target.wants/apt-daily.timer`
+Теперь вместо крона используется systemd timer `:q::timers.target.wants/apt-daily.timer`
 
 Который также умеет рандомизировать время `RandomizedDelaySec=12h`
 
 А cron job `/etc/cron.daily/apt` делает exit 0, в случае если запущен systemd. Т.е. он нужен в случае если systemd будет удален или не будет использоваться.
 
+Таймер должен быть привязан к службе. В нашем случае это `/lib/systemd/system/apt-daily.service`
+
+Для того, чтобы увидеть все запущенные таймеры, используйте:
+
+```
+sysadmin@hyperion:~$ systemctl list-timers
+NEXT                         LEFT         LAST                         PASSED       UNIT                         ACTIVATES
+Wed 2016-09-14 15:29:51 MSK  4h 3min left Wed 2016-09-14 10:10:14 MSK  1h 15min ago snapd.refresh.timer          snapd.refresh.service
+Thu 2016-09-15 03:23:42 MSK  15h left     Wed 2016-09-14 07:33:14 MSK  3h 52min ago apt-daily.timer              apt-daily.service
+Thu 2016-09-15 05:47:19 MSK  18h left     Wed 2016-09-14 05:47:19 MSK  5h 38min ago systemd-tmpfiles-clean.timer systemd-tmpfiles-clean.service
+n/a                          n/a          Thu 2016-09-08 15:03:55 MSK  5 days ago   ureadahead-stop.timer        ureadahead-stop.service
+
+4 timers listed.
+Pass --all to see loaded but inactive timers, too.
+
+```

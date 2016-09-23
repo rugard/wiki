@@ -6,7 +6,7 @@ sudo apt-get install freerdp-x11
 
 
 ```
-xfreerdp -g 1500x900 --sec rdp -u Administrator venus
+xfreerdp --plugin cliprdr -g 1500x900 -u Administrator --sec rdp venus
 ```
 
 Additional info: https://github.com/FreeRDP/FreeRDP/wiki/CommandLineInterface

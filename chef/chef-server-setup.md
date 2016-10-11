@@ -1,4 +1,4 @@
-
+# Create a container
 
 ```bash
 lxc init cvl_ubuntu_1604/base/latest chef
@@ -61,3 +61,11 @@ root@chef:~# hostname -f
 chef.cvisionlab.com
 
 ```
+
+Setup NOPASSWD:
+
+```
+root@chef:/home/srvadm# grep NOP /etc/sudoers
+%sudo	ALL=(ALL:ALL) NOPASSWD:ALL
+```
+

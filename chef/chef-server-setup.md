@@ -64,8 +64,13 @@ chef.cvisionlab.com
 
 Setup NOPASSWD:
 
-```
+```bash
 root@chef:/home/srvadm# grep NOP /etc/sudoers
 %sudo	ALL=(ALL:ALL) NOPASSWD:ALL
 ```
 
+Copy keys:
+
+```bash
+skubriev@mimas$ ssh-copy-id srvadm@chef.cvisionlab.com
+```

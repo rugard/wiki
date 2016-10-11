@@ -108,4 +108,6 @@ add check-gateway=ping distance=20 gateway=8.8.4.4 target-scope=30
 > https://geektimes.ru/post/186284/
 > 
 > http://wiki.mikrotik.com/wiki/Advanced_Routing_Failover_without_Scripting
+>
+> http://wiki.mikrotik.com/wiki/Manual:IP/Firewall/Mangle
 

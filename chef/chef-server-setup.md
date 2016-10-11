@@ -46,7 +46,7 @@ reboot
 
 Check resolving:
 
-```
+```bash
 apt-get update
 apt-get install dnsutils
 

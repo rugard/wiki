@@ -37,3 +37,27 @@ ff00::0 ip6-mcastprefix
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 ```
+
+Reboot:
+
+```
+reboot
+```
+
+Check resolving:
+
+```
+apt-get update
+apt-get install dnsutils
+
+root@chef:~# nslookup mimas
+Server:		192.168.128.3
+Address:	192.168.128.3#53
+
+Name:	mimas.cvision.lab
+Address: 192.168.128.68
+
+root@chef:~# hostname -f
+chef.cvisionlab.com
+
+```

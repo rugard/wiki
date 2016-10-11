@@ -1,6 +1,6 @@
 
 
-```
+```bash
 lxc init cvl_ubuntu_1604/base/latest chef
 lxc start chef
 lxc exec chef bash
@@ -40,7 +40,7 @@ ff02::2 ip6-allrouters
 
 Reboot:
 
-```
+```bash
 reboot
 ```
 

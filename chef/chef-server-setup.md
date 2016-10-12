@@ -74,3 +74,9 @@ Copy keys:
 ```bash
 skubriev@mimas$ ssh-copy-id srvadm@chef.cvisionlab.com
 ```
+
+Prepare:
+
+```
+knife solo bootstrap srvadm@chef.cvisionlab.com
+```

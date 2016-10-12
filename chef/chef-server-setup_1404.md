@@ -99,4 +99,8 @@ Prepare:
 
 ```
 knife solo bootstrap srvadm@chef.cvisionlab.com
+
+# or selective, first install chef, and then cook:
+knife solo prepare srvadm@chef.cvisionlab.com
+knife solo cook srvadm@chef.cvisionlab.com
 ```

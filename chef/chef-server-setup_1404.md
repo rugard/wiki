@@ -1,7 +1,7 @@
 # Create a container
 
 ```bash
-lxc init cvl_ubuntu_1604/base/latest chef
+lxc init ubuntu/trusty/amd64 chef
 lxc start chef
 lxc exec chef bash
 ```
@@ -38,17 +38,35 @@ ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 ```
 
+Setup NOPASSWD:
+
+```bash
+root@chef:/home/srvadm# grep NOP /etc/sudoers
+%sudo	ALL=(ALL:ALL) NOPASSWD:ALL
+```
+
 Reboot:
 
 ```bash
 reboot
 ```
 
-Check resolving:
+Setup server admin:
+
+```bash
+lxc exec chef bash
+
+deluser ubuntu
+adduser srvadm
+usermod -aG sudo srvadm
+
+```
+
+Check resolving, and ssh server:
 
 ```bash
 apt-get update
-apt-get install dnsutils
+apt-get -yq install dnsutils ssh
 
 root@chef:~# nslookup mimas
 Server:		192.168.128.3
@@ -62,17 +80,19 @@ chef.cvisionlab.com
 
 ```
 
-Setup NOPASSWD:
 
-```bash
-root@chef:/home/srvadm# grep NOP /etc/sudoers
-%sudo	ALL=(ALL:ALL) NOPASSWD:ALL
-```
 
 Copy keys:
 
 ```bash
 skubriev@mimas$ ssh-copy-id srvadm@chef.cvisionlab.com
+```
+
+Publish:
+
+```
+lxc image delete chef/bootstrapped
+lxc publish chef --alias=chef/clean --force
 ```
 
 Prepare:

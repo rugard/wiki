@@ -96,8 +96,8 @@ add distance=1 gateway=pppoe-mts routing-mark=ISP2
 
 ```
 /ip route
-add distance=1 dst-address=8.8.4.4/32 gateway=pppoe-mts
-add distance=1 dst-address=8.8.8.8/32 gateway=pppoe-rt
+add distance=1 dst-address=8.8.4.4/32 gateway=80.80.111.70
+add distance=1 dst-address=8.8.8.8/32 gateway=83.221.214.192
 ```
 
 Ну и собственно сами рекурсивные маршруты, обратите внимание на target-scope

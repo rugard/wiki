@@ -55,6 +55,10 @@ add action=mark-connection chain=input in-interface=pppoe-mts new-connection-mar
 add action=mark-routing chain=output connection-mark=Input/ISP2 new-routing-mark=ISP2 passthrough=no
 ```
 
+Не много обясним:
+
+> `passthrough` - ignore this rule and go to next one (useful for statistics).
+
 Создадим правила Route для первого провайдера
 
 ```

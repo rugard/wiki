@@ -92,6 +92,8 @@ add distance=1 gateway=pppoe-mts routing-mark=ISP2
 
 > ** ЕСЛИ УКАЗАТЬ ИМЯ ИНТЕРФЕЙСА ЛАЙК `pppoe-mts` или `pppoe-rt` ТО СИСТЕМА НЕ ПАШЕТ** 
 
+> http://forum.mikrotik.com/viewtopic.php?t=33881
+
 ИДЕТ пинг из LAN только на 8.8.4.4, остальное не работает, и `recursive` маршрутов просто не появляется.
 
 ```

@@ -76,7 +76,7 @@ add action=lookup-only-in-table routing-mark=ISP2 table=ISP2
 Осталось дело за малым. Настроить таблицу маршрутизации для двух провайдеров.
 Создадим маршруты для наших провайдеров
 
-How and why we can use iface name instead of gateway ip in routing rules with ppp ifaces ?
+How and why we can use iface name instead of gateway ip in routing rules with ppp ifaces ? - **НИ КАК ПОКА**
 
 > For PPP, tunnels, PVCs, or any non-multi-access type of interface, there's only you and "the other end" - so this makes sense.
 
@@ -89,6 +89,10 @@ add distance=1 gateway=pppoe-mts routing-mark=ISP2
 ```
 
 Добавим два адреса через которых мы будем строить рекурсивные запросы.
+
+> ** ЕСЛИ УКАЗАТЬ ИМЯ ИНТЕРФЕЙСА ЛАЙК `pppoe-mts` или `pppoe-rt` ТО СИСТЕМА НЕ ПАШЕТ** 
+
+ИДЕТ пинг из LAN только на 8.8.4.4, остальное не работает, и `recursive` маршрутов просто не появляется.
 
 ```
 /ip route

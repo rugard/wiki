@@ -110,6 +110,13 @@ add check-gateway=ping distance=10 gateway=8.8.8.8 target-scope=30
 add check-gateway=ping distance=20 gateway=8.8.4.4 target-scope=30
 ```
 
+Address lists:
+
+```
+/ip firewall address-list add list=gw_cvisionlab_com address=87.117.9.93/32
+/ip firewall address-list add list=gw_cvisionlab_com address=95.174.101.40/32
+/ip firewall address-list print
+```
 
 #### Some useful links:
 

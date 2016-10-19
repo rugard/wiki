@@ -26,9 +26,13 @@ iface eth0 inet static
 
 Setup fqdn:
 
+> We do not use `chef.cvisionlab.com` as fqdn, because knife solo does not work, when node fqdn resolves to another than chef server ip (i.e. in gate ip)
+
+> I already setuped resolving external name `chef.cvisionlab.com` on dns server and it resolves to internal gateway ip `192.168.128.1`. Chef server is immediately available with manage console.
+
 ```
 127.0.0.1   localhost
-192.168.128.4 chef.cvisionlab.com chef
+192.168.128.4 chef.cvision.lab chef
 
 # The following lines are desirable for IPv6 capable hosts
 ::1     ip6-localhost ip6-loopback

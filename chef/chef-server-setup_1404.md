@@ -91,7 +91,7 @@ chef.cvisionlab.com
 Copy keys:
 
 ```bash
-skubriev@mimas$ ssh-copy-id srvadm@chef.cvisionlab.com
+skubriev@mimas$ ssh-copy-id srvadm@chef.cvision.lab
 ```
 
 Publish:
@@ -104,9 +104,9 @@ lxc publish chef --alias=chef/clean --force
 Prepare:
 
 ```
-knife solo bootstrap srvadm@chef.cvisionlab.com
+knife solo bootstrap srvadm@chef.cvision.lab
 
 # or selective, first install chef, and then cook:
-knife solo prepare srvadm@chef.cvisionlab.com
-knife solo cook srvadm@chef.cvisionlab.com
+knife solo prepare srvadm@chef.cvision.lab
+knife solo cook srvadm@chef.cvision.lab
 ```

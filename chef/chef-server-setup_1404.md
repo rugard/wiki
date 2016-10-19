@@ -159,5 +159,13 @@ chmod 600  ~/.chef/$user.pem
 ### Create an org.
 
 ```bash
+chef-server-ctl org-create cvisionlab 'CVisionLab' --association_user skubriev --filename /tmp/cvl-validator.pem
+```
+
+Save a private validation key.
 
 ```
+scp /tmp/cvl-validator.pem skubriev@mimas:.chef/cvl-validator.pem
+```
+
+Then you will be able to login with manage console and manage you org.

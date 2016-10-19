@@ -101,6 +101,8 @@ lxc image delete chef/bootstrapped
 lxc publish chef --alias=chef/clean --force
 ```
 
+## Bootstrap server
+
 Prepare:
 
 ```
@@ -109,4 +111,53 @@ knife solo bootstrap srvadm@chef.cvision.lab
 # or selective, first install chef, and then cook:
 knife solo prepare srvadm@chef.cvision.lab
 knife solo cook srvadm@chef.cvision.lab
+```
+
+## Initial configuration 
+
+> https://docs.chef.io/install_server.html#standalone
+
+Login to you server and disable history:
+
+```bash
+$ ssh srvadm@chef.cvision.lab
+
+# become a root
+$ sudo su
+
+```
+
+### Create initial user, be sure you place space before start commands, for 
+
+```bash
+# disable bash history
+$ set +o history
+
+# USAGE: knife opc user create USERNAME FIRST_NAME [MIDDLE_NAME] LAST_NAME EMAIL PASSWORD
+# user=skubriev; chef-server-ctl user-create $user Vladimir Skubriev $user@cvisionlab.com 'password'--filename $user.pem 
+
+# enable history
+$ set -o history
+```
+
+Save a private key.
+
+```
+scp /tmp/skubriev.pem skubriev@mimas:.chef/skubriev.pem
+```
+
+Encrypt a pem file on admin machine:
+
+```
+# Be ready to enter a good password protection passphrase, below:
+user="skubriev"; openssl rsa -aes256 -in ~/.chef/$user.key -out ~/.chef/$user.key
+chmod 600  ~/.chef/$user.pem
+
+```
+
+
+### Create an org.
+
+```bash
+
 ```

@@ -6,9 +6,24 @@
 
 I used `kernel-qemu-4.4.12-jessie`, direct link is https://github.com/dhruvvyas90/qemu-rpi-kernel/raw/master/kernel-qemu-4.4.12-jessie
 
-## Run 
+## Run with bash as init
 
 ```bash
 $ qemu-system-arm -kernel kernel-qemu-4.4.12-jessie -cpu arm1176 -m 256 -M versatilepb -append "root=/dev/sda2 panic=1 rootfstype=ext4 rw init=/bin/bash" -hda 2016-02-26-raspbian-jessie.img
 ```
 
+## Normal run
+
+```
+qemu-system-arm -kernel kernel-qemu-4.4.12-jessie -cpu arm1176 -m 256 -M versatilepb -append "root=/dev/sda2 panic=1 rootfstype=ext4 rw" -hda 2016-02-26-raspbian-jessie.img
+```
+
+# Change disk size
+
+```bash
+$ sudo su
+# losetup /dev/loop0 2016-02-26-raspbian-jessie.img
+# kpartx -a /dev/loop1
+# e2fsck -f /dev/mapper/loop1p2
+# resize2fs /dev/mapper/loop1p2
+```

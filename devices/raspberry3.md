@@ -54,3 +54,15 @@ From lapin link https://wiki.ubuntu.com/ARM64/QEMU
 
 Proc types https://developer.arm.com/products/processors/cortex-a/cortex-a53
 
+# Setup chroot
+
+```
+sudo su
+cd /tmp
+wget https://downloads.raspberrypi.org/raspbian_lite_latest
+
+unzip raspbian_lite_latest
+rm raspbian_lite_latest
+
+
+```

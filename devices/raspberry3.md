@@ -38,6 +38,10 @@ $ sudo su
 
 > To enable ssh server use `sudo raspi-config`
 
+> Be sure that 60022 port is not used by another qemu|application on host system! Else you will get error.
+
+
+
 ```
 $ qemu-system-arm -kernel kernel-qemu-4.4.12-jessie -cpu arm1176 -m 256 -M versatilepb -append "root=/dev/sda2 panic=1 rootfstype=ext4 rw" -hda 2016-02-26-raspbian-jessie.img -net nic -net user,hostfwd=tcp::60022-:22
 ```

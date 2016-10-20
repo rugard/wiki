@@ -15,7 +15,7 @@ $ qemu-system-arm -kernel kernel-qemu-4.4.12-jessie -cpu arm1176 -m 256 -M versa
 ## Normal run
 
 ```
-qemu-system-arm -kernel kernel-qemu-4.4.12-jessie -cpu arm1176 -m 256 -M versatilepb -append "root=/dev/sda2 panic=1 rootfstype=ext4 rw" -hda 2016-02-26-raspbian-jessie.img
+$ qemu-system-arm -kernel kernel-qemu-4.4.12-jessie -cpu arm1176 -m 256 -M versatilepb -append "root=/dev/sda2 panic=1 rootfstype=ext4 rw" -hda 2016-02-26-raspbian-jessie.img
 ```
 
 # Change disk size
@@ -26,4 +26,18 @@ $ sudo su
 # kpartx -a /dev/loop1
 # e2fsck -f /dev/mapper/loop1p2
 # resize2fs /dev/mapper/loop1p2
+```
+
+## Run with network and forwarding ssh port of guest to host system
+
+> This will forward host localport 60022 to 22 port of guest (ssh server)
+
+> Default user pi does not have ssh access enabled by default (we don't know why)
+
+> Create you own user with password, and add it to sudoers
+
+> To enable ssh server use `sudo raspi-config`
+
+```
+$ qemu-system-arm -kernel kernel-qemu-4.4.12-jessie -cpu arm1176 -m 256 -M versatilepb -append "root=/dev/sda2 panic=1 rootfstype=ext4 rw" -hda 2016-02-26-raspbian-jessie.img -net nic -net user,hostfwd=tcp::60022-:22
 ```

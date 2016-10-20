@@ -48,5 +48,9 @@ $ qemu-system-arm -kernel kernel-qemu-4.4.12-jessie -cpu arm1176 -m 256 -M versa
 
 Additional info
 
-** https://gist.github.com/Liryna/10710751 **
-** From lapin link https://wiki.ubuntu.com/ARM64/QEMU **
+Good https://gist.github.com/Liryna/10710751
+
+From lapin link https://wiki.ubuntu.com/ARM64/QEMU
+
+Proc types https://developer.arm.com/products/processors/cortex-a/cortex-a53
+

@@ -45,3 +45,8 @@ $ sudo su
 ```
 $ qemu-system-arm -kernel kernel-qemu-4.4.12-jessie -cpu arm1176 -m 256 -M versatilepb -append "root=/dev/sda2 panic=1 rootfstype=ext4 rw" -hda 2016-02-26-raspbian-jessie.img -net nic -net user,hostfwd=tcp::60022-:22
 ```
+
+Additional info
+
+** https://gist.github.com/Liryna/10710751 **
+** From lapin link https://wiki.ubuntu.com/ARM64/QEMU **

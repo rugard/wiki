@@ -64,5 +64,21 @@ wget https://downloads.raspberrypi.org/raspbian_lite_latest
 unzip raspbian_lite_latest
 rm raspbian_lite_latest
 
+```
+
+For `pip upgrade` and `apt-get update` without errors
+
+```
+#
+root@raspberrypi:/tmp# mount —bind /dev/ /chroot/dev/
+root@raspberrypi:/tmp# mount —bind /dev/pts /chroot/dev/pts
+root@raspberrypi:/tmp# mount —bind /sys /chroot/sys
+root@raspberrypi:/tmp# mount —bind /proc /chroot/proc
+
+# /tmp must be created )
+mkdir /tmp 
+apt-get update
+apt-get install python-pip
+pip install --upgrade pip
 
 ```

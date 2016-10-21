@@ -169,3 +169,16 @@ scp /tmp/cvl-validator.pem skubriev@mimas:.chef/cvl-validator.pem
 ```
 
 Then you will be able to login with manage console and manage you org.
+
+## Restore server data
+
+Cookbooks:
+
+```
+knife backup restore cookbooks -D ~/.chef/chef.backup
+knife backup restore environments -D ~/.chef/chef.backup
+knife backup restore roles -D ~/.chef/chef.backup
+knife backup restore nodes -D ~/.chef/chef.backup
+
+```
+Nodes:

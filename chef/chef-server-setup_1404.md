@@ -158,6 +158,8 @@ scp /tmp/skubriev.pem skubriev@mimas:.chef/skubriev.pem
 
 Encrypt a pem file on admin machine(**currently not supported by knife**):
 
+> https://discourse.chef.io/t/using-ssh-agent-with-encrypted-knife-client-key/9723
+
 ```
 # Be ready to enter a good password protection passphrase, below:
 user="skubriev"; openssl rsa -aes256 -in ~/.chef/$user.key -out ~/.chef/$user.key

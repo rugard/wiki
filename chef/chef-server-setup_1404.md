@@ -156,7 +156,7 @@ Save a private key.
 scp /tmp/skubriev.pem skubriev@mimas:.chef/skubriev.pem
 ```
 
-Encrypt a pem file on admin machine:
+Encrypt a pem file on admin machine(**currently not supported by knife**):
 
 ```
 # Be ready to enter a good password protection passphrase, below:

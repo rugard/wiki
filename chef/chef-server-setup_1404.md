@@ -189,6 +189,20 @@ knife backup restore cookbooks -D ~/.chef/chef.backup
 knife backup restore environments -D ~/.chef/chef.backup
 knife backup restore roles -D ~/.chef/chef.backup
 knife backup restore nodes -D ~/.chef/chef.backup
+```
+
+**Attention**
+
+This will overwrite existing clients on server !!! 
 
 ```
-Nodes:
+knife backup restore clients -D ~/.chef/chef.backup
+```
+
+Creating databags and item's:
+
+```
+cd ~/chef-repo
+knife data bag create users
+knife data bag from file users data_bags/users/sysadmin.json
+```

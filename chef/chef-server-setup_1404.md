@@ -1,3 +1,13 @@
+# Backup existing server
+
+```
+knife backup export cookbooks roles environments -D ~/.chef/chef.backup
+```
+
+or may be use **`knife download`** - ???.
+
+Try it next time.
+
 # Create a container
 
 ```bash

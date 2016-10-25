@@ -220,3 +220,18 @@ The ACL of the following nodes will be modified:
 Are you sure you want to modify the ACL of these nodes?? (Y/N) y
 
 ```
+## Disable sign up in chef manage web interface.
+
+> There is no additional options for configure manage console via chef-server-cookbook. All options described in documentation are deprecated. There we disabling sign up manually.
+
+Create config `/etc/chef-manage/manage.rb`, with following string
+
+```
+disable_sign_up true
+```
+
+And reconfigure addon:
+
+```
+chef-manage-ctl reconfigure
+```

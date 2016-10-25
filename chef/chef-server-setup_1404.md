@@ -208,3 +208,15 @@ cd ~/chef-repo
 knife data bag create users
 knife data bag from file users data_bags/users/sysadmin.json
 ```
+
+## Fix acl's of nodes:
+
+```
+skubriev@mimas[~/chef-repo][1] $ knife acl bulk add group clients nodes '.*' update,read
+The ACL of the following nodes will be modified:
+
+### There arenodes list ...
+
+Are you sure you want to modify the ACL of these nodes?? (Y/N) y
+
+```

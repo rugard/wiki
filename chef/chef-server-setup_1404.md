@@ -241,6 +241,10 @@ chef-manage-ctl reconfigure
 > Using user(admin) pem key
 > Do it from admin machine
 
+> Don't forget
+> to change pinned client version on server, see `roles/chef_cvision_lab.json`
+> before run client.
+
 ```
 knife bootstrap chef.cvision.lab -x srvadm --sudo -N chef.cvision.lab
 ```

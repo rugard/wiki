@@ -235,3 +235,12 @@ And reconfigure addon:
 ```
 chef-manage-ctl reconfigure
 ```
+
+## New method to bootstrap a node without ant validator.pem key.
+
+> Using user(admin) pem key
+> Do it from admin machine
+
+```
+knife bootstrap chef.cvision.lab -x srvadm --sudo -N chef.cvision.lab
+```

@@ -1,3 +1,9 @@
+# Using CSI camera
+
+> This cam module works only with Xserver enabled. And can be enabled software in GUI `raspiconfig` tool.
+
+Additional info: https://www.raspberrypi.org/learning/getting-started-with-picamera/worksheet/
+
 # Emulate with qemu.
 
 ## Get an image of raspbian.

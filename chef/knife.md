@@ -176,5 +176,16 @@ WARNING: Certificates from chef.cvision.lab will be fetched and placed in your t
 directory (/etc/chef/trusted_certs).
 ```
 
+**View cookbook dependencies**
 
+There is no default command to see rdepends of cookbook dependencies.
+
+```
+#!/bin/bash
+pushd public
+for cookbook in *
+do
+  knife deps $cookbook --tree && printf "\n"
+done
+```
 

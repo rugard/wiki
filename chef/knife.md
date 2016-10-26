@@ -180,7 +180,7 @@ directory (/etc/chef/trusted_certs).
 
 There is no default command to see rdepends of cookbook dependencies.
 
-```
+```bash
 #!/bin/bash
 pushd public
 for cookbook in *

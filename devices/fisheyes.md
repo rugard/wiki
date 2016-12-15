@@ -1,5 +1,7 @@
 # Fisheye's
+# latest
 
+vlc rtsp://guest:guest@fisheye:8554/CH001.sdp?tcp
 
 rtsp://admin:4321@fisheye3:554/profile1/media.smp
 

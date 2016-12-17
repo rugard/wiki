@@ -121,15 +121,18 @@ add distance=1 dst-address=77.88.8.8/32 gateway=pppoe-rt
 add distance=1 dst-address=77.88.8.1/32 gateway=pppoe-mts
 ```
 
+После добавления этих правил у вас сначала пойдет пинг с лвс на 77.88.8.8, после второго правила на 77.88.8.1.
+
 Ну и собственно сами рекурсивные маршруты, обратите внимание на target-scope.
 
 Через `distance` задаем приоритет.
 
 ```
 /ip route
-add check-gateway=ping distance=10 gateway=77.88.8.8 target-scope=30
-add check-gateway=ping distance=20 gateway=77.88.8.1 target-scope=30
+add check-gateway=ping distance=10 gateway=pppoe-rt target-scope=30
+add check-gateway=ping distance=20 gateway=pppoe-mts target-scope=30
 ```
+После добавления первого правила сразу появится инет в ЛВС через первого провайдера.
 
 Address lists:
 

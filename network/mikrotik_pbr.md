@@ -74,13 +74,38 @@ add action=lookup-only-in-table routing-mark=ISP2 table=ISP2
 ```
 
 Осталось дело за малым. Настроить таблицу маршрутизации для двух провайдеров.
-Создадим маршруты для наших провайдеров
 
-How and why we can use iface name instead of gateway ip in routing rules with ppp ifaces ? - **НИ КАК ПОКА**
+Требуется отключить default route у обоих pppoe интерфейсов, дабы получить такую таблицу:
 
-> For PPP, tunnels, PVCs, or any non-multi-access type of interface, there's only you and "the other end" - so this makes sense.
+```
+[admin@MikroTik] /ip route> print
+Flags: X - disabled, A - active, D - dynamic, C - connect, S - static, r - rip, b - bgp, o - ospf, m - mme, 
+B - blackhole, U - unreachable, P - prohibit 
+ #      DST-ADDRESS        PREF-SRC        GATEWAY            DISTANCE
+ 0   S  ;;; Our custom static route rule for VPN
+        10.9.0.0/16                        ovpn-out-tgn              1
+ 1 ADC  80.80.111.70/32    77.66.219.46    pppoe-mts                 0
+ 2 ADC  83.221.214.193/32  83.221.215.193  pppoe-rt                  0
+ 3 ADC  192.168.129.0/24   192.168.129.1   bridge-local              0
+```
+
+Как видно из этой таблицы:
+
+* у нас есть маршрут для vpn - наш собственный статический.
+* два авто маршрута создающихся при соединении с провайдерами.
+
+Более не чего у нас быть не должно.
+
+Since 6.73.3 (maybe later version) - we can use iface name instead of gateway ip in routing rules with ppp ifaces.
+
+> There are issues with old version of OS. For PPP, tunnels, PVCs, or any non-multi-access type of interface, there's only you and "the other end" - so this makes sense.
+
+> ЕСЛИ УКАЗАТЬ ИМЯ ИНТЕРФЕЙСА ЛАЙК `pppoe-mts` или `pppoe-rt` ТО СИСТЕМА НЕ ПАШЕТ - не актуально более
 
 See `http://forum.mikrotik.com/viewtopic.php?t=94191`
+See `http://forum.mikrotik.com/viewtopic.php?t=33881`
+
+Создадим маршруты для наших провайдеров:
 
 ```
 /ip route
@@ -88,26 +113,22 @@ add distance=1 gateway=pppoe-rt routing-mark=ISP1
 add distance=1 gateway=pppoe-mts routing-mark=ISP2
 ```
 
-Добавим два адреса через которых мы будем строить рекурсивные запросы.
-
-> ** ЕСЛИ УКАЗАТЬ ИМЯ ИНТЕРФЕЙСА ЛАЙК `pppoe-mts` или `pppoe-rt` ТО СИСТЕМА НЕ ПАШЕТ** 
-
-> http://forum.mikrotik.com/viewtopic.php?t=33881
-
-ИДЕТ пинг из LAN только на 8.8.4.4, остальное не работает, и `recursive` маршрутов просто не появляется.
+Добавим два адреса через которые мы будем строить рекурсивные запросы.
 
 ```
 /ip route
-add distance=1 dst-address=8.8.4.4/32 gateway=80.80.111.70
-add distance=1 dst-address=8.8.8.8/32 gateway=83.221.214.192
+add distance=1 dst-address=77.88.8.8/32 gateway=pppoe-rt
+add distance=1 dst-address=77.88.8.1/32 gateway=pppoe-mts
 ```
 
-Ну и собственно сами рекурсивные маршруты, обратите внимание на target-scope
+Ну и собственно сами рекурсивные маршруты, обратите внимание на target-scope.
+
+Через `distance` задаем приоритет.
 
 ```
 /ip route
-add check-gateway=ping distance=10 gateway=8.8.8.8 target-scope=30
-add check-gateway=ping distance=20 gateway=8.8.4.4 target-scope=30
+add check-gateway=ping distance=10 gateway=77.88.8.8 target-scope=30
+add check-gateway=ping distance=20 gateway=77.88.8.1 target-scope=30
 ```
 
 Address lists:

@@ -11,7 +11,36 @@ Links from goncharov:
 https://habrahabr.ru/post/279695/
 https://habrahabr.ru/post/304174/
 
-To update a cert or generate a new one use following alg:
+New Automatic:
+
+prep a sys:
+```
+pip install -U pip
+pip install certbot
+pip install -U certbot
+pip install -U certbot-nginx
+
+certbot cerrificates
+# You should see existing manual recived certs on you server
+```
+
+to auto update:
+
+```
+certbot renew --nginx --dry-run
+certbot renew --nginx
+# select expired cert, enter
+```
+
+to delete a cert interactively:
+
+```
+certbot delete
+# select expired cert, enter
+```
+
+
+DEPRECATED - manual. To update a cert or generate a new one use following alg:
 
 ```bash
 sudo su

@@ -2,6 +2,21 @@
 
 ## Using knife
 
+**Bootstrap a new client/node **
+
+```
+knife bootstrap --sudo -x wsadm -N shuttle.cvision.lab shuttle.cvision.lab
+Node shuttle.cvision.lab exists, overwrite it? (Y/N) y
+Client shuttle.cvision.lab exists, overwrite it? (Y/N) y
+Creating new client for shuttle.cvision.lab
+Creating new node for shuttle.cvision.lab
+Connecting to shuttle.cvision.lab
+shuttle.cvision.lab knife sudo password: 
+Enter your password: 
+shuttle.cvision.lab 
+shuttle.cvision.lab -----> Installing Chef Omnibus (-v 12)
+```
+
 **Show differences beetween repo and server**
 
 ```bash

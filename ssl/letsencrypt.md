@@ -11,6 +11,15 @@ Links from goncharov:
 https://habrahabr.ru/post/279695/
 https://habrahabr.ru/post/304174/
 
+New Automatic, since 2017-30-May:
+
+```
+cd /srv/nginx-confd-gate/
+certbot --nginx -d chef.cvisionlab.com
+git diff
+git checkout -- chef.conf
+```
+
 New Automatic:
 
 prep a sys:

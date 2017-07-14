@@ -1,4 +1,16 @@
-bad# Control disk devices.
+# Control disk devices.
+
+## Copy part table (GPT) from one to another disk:
+
+https://askubuntu.com/questions/57908/how-can-i-quickly-copy-a-gpt-partition-scheme-from-one-hard-drive-to-another
+
+The first command copies the partition table of sdX to sdY (be careful not to mix these up). The second command randomizes the GUID on the disk and all the partitions. This is only necessary if the disks are to be used in the same machine, 
+otherwise it's unnecessary.
+
+```
+sgdisk /dev/sdX -R /dev/sdY 
+sgdisk -G /dev/sdY
+```
 
 ## Re-read partition table
 

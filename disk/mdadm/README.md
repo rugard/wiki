@@ -1,3 +1,23 @@
+## Увеличение размера массива за счет новых - больших дисков
+
+https://zedt.eu/tech/linux/migrating-existing-raid1-volumes-bigger-drives/
+
+Я делал всё без изменения битмапов.
+
+
+
+### Copy part table (GPT) from one to another disk:
+
+https://askubuntu.com/questions/57908/how-can-i-quickly-copy-a-gpt-partition-scheme-from-one-hard-drive-to-another
+
+The first command copies the partition table of sdX to sdY (be careful not to mix these up). The second command randomizes the GUID on the disk and all the partitions. This is only necessary if the disks are to be used in the same machine, 
+otherwise it's unnecessary.
+
+```
+sgdisk /dev/sdX -R /dev/sdY 
+sgdisk -G /dev/sdY
+```
+
 ## Сервер не загружается после отключения третьего архивного диска
 
 The S labels means the disk is regarded as "spare". You should try stopping and re-starting the array:

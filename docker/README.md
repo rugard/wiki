@@ -17,4 +17,12 @@ docker save cvisionlab/vcakinder:150128 | gzip > vcakinder_150128.tgz
 docker save cvisionlab/vcakinder:150128 > /data/vcakinder_150128.tar
 ```
 
+**Load in images at once, without saving image file to disk**
 
+> `SimpleHTTPServer` cannot serve to multiple clients. Файл будет отдан последовательно каждому, но одновременно будет грузиться только одним.
+
+
+```bash
+python -m SimpleHTTPServer
+wget -O - -o /tmp/wget http://192.168.129.104:8000/tetn_alrotation-v1_with_data.tgz | docker load
+```

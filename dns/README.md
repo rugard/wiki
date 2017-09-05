@@ -1,3 +1,21 @@
+## Update slave zones:
+
+**on master**:
+
+edit file, **inc. zone serial !!!**
+
+```
+rndc reload
+```
+
+**on slave**:
+
+```
+rndc refresh cvision.lab
+rndc refresh 128.168.192.in-addr.arpa
+rndc refresh 129.168.192.in-addr.arpa
+```
+
 ## Using nsupdate
 
 ```bash

@@ -34,3 +34,14 @@ update-alternatives --list editor
 update-alternatives --set editor /usr/bin/vim.basic
 ```
 
+# bash PS1
+
+on servers, user - user and host are green:
+```
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@$(hostname -f)\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+```
+
+on servers, root - red user:
+```
+PS1='${debian_chroot:+($debian_chroot)}\[\033[38;5;9m\]\u\[\033[01;32m\]@$(hostname -f)\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+```

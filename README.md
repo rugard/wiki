@@ -34,7 +34,7 @@ update-alternatives --list editor
 update-alternatives --set editor /usr/bin/vim.basic
 ```
 
-# bash PS1
+# bash PS1, with fqdn 
 
 on servers, user - user and host are green:
 ```

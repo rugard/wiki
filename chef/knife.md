@@ -17,6 +17,12 @@ shuttle.cvision.lab
 shuttle.cvision.lab -----> Installing Chef Omnibus (-v 12)
 ```
 
+Method 2:
+
+```
+knife bootstrap --bootstrap-version "12.19.36" --sudo -x wsadm -N xenial.cvision.lab 192.168.129.220
+```
+
 **Show differences beetween repo and server**
 
 ```bash

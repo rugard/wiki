@@ -174,4 +174,16 @@ Bridge interface name: br-eth0
 
 !!! Answer 'No' to configuring ipv4 and ipv6.
 
+## Testing container
 
+```
+lxc init images:ubuntu/xenial/amd64 xenial
+lxc config set xenial volatile.eth0.hwaddr 00:16:3e:6f:cb:d8
+lxc start xenial
+lxc exec xenial bash
+...
+lxc publish xenial -f --alias xenial/chef/rnd/2
+lxc exec xenial bash
+...
+lxc delete -f xenial
+```

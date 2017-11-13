@@ -70,6 +70,9 @@ done
 
 OOM Killer stats sorted:
 
+https://unix.stackexchange.com/questions/128642/debug-out-of-memory-with-var-log-messages
+
+> Tested with https://regexr.com/, this site uses Perl regex
 
 > `Nov 13 04:12:02 dione kernel: [842051.716704] [31914]     0 31914  1474538  1099403    2226        0             0 pinger.rb`
 > 1099403*4096/1024/1024=4294 Mb

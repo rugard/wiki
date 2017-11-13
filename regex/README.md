@@ -75,4 +75,6 @@ OOM Killer stats sorted:
 > 1099403*4096/1024/1024=4294 Mb
 > rss - Resident memory use (in 4 kB pages)
 
+```
 grep 'Nov 13 04:12:02' /var/log/syslog | grep -P '\[\d*\][\s]' | sort -n -k 11
+```

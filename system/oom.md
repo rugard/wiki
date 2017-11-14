@@ -1,5 +1,7 @@
 OOM
 
+https://unix.stackexchange.com/questions/128642/debug-out-of-memory-with-var-log-messages
+
 ```
 watch -n 1 'ps -eo uname,pid,ppid,nlwp,pcpu,pmem,rss,psr,start_time,tty,time,args | grep [p]inger'
 ```

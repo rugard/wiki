@@ -16,6 +16,10 @@ Get processes memory stats when oom was called and sort by mem usage:
 > rss Resident memory use (in 4 kB pages)
 > total_vm Virtual memory use (in 4 kB pages)
 
+`-P` perl regex
+
+Test it here: https://regexr.com/
+
 ```
 zcat /var/log/syslog.*.gz | grep -P '\[\d*\][\s]' | sort -n -k 11
 ```

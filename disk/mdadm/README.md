@@ -20,6 +20,18 @@ sgdisk -G /dev/sdY
 
 ## Сервер не загружается после отключения третьего архивного диска
 
+В 16.04 пишут апдейта нет, поидее не должен грузиться с разбитых дисков.
+
+https://bugs.launchpad.net/ubuntu/+source/mdadm/+bug/1635049
+
+Узнал о новом варианте сборки в initrd одной командой, но не проверял:
+
+> https://askubuntu.com/questions/789953/how-to-enable-degraded-raid1-boot-in-16-04lts
+
+```
+mdadm -IRs
+```
+
 The S labels means the disk is regarded as "spare". You should try stopping and re-starting the array:
 
 ```

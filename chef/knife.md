@@ -160,6 +160,18 @@ List all nodes names:
 knife search "*:*" -i
 knife search node 'name:*cvision.lab-*' -i
 ```
+
+List all nodes, that have specific attribute:
+
+```
+knife search node "(geolocation:branch)" -i
+```
+
+Show specific node attribute:
+```
+knife node mimas.cvision.lab show -a geolocation.branch
+```
+
 ## Using chef-vault
 
 Create a vault

@@ -1,3 +1,15 @@
+# Install manually
+
+```
+Check:
+
+/usr/local/sbin/customscripts/utils/apt-check | wc -l
+
+Install:
+
+/usr/local/sbin/customscripts/utils/apt-check 2>/dev/null | xargs sudo apt-get install --reinstall -o Dpkg::Options::="--force-confold" --force-yes -y
+```
+
 # Обновление unattend-upgrades в xenial (16.04)
 
 В 16.04 не используется cron для запуска unattend-upgrades, точнее `/usr/lib/apt/apt.systemd.daily`, который ранее был `/etc/cron.daily/apt`

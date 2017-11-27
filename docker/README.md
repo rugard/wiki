@@ -9,12 +9,12 @@ docker exec -it kickass_leakey /bin/bash
 
 ```bash
 docker load --input one_move_one_mysql.tar
-docker run -d --publish 7654:7654 -ti cvisionlab/moveavserver /usr/bin/avserver
+docker run -d --publish 7654:7654 -ti cvisionlab/move /usr/bin/avserver
 ```
 
 ```bash
-docker save cvisionlab/vcakinder:150128 | gzip > vcakinder_150128.tgz
-docker save cvisionlab/vcakinder:150128 > /data/vcakinder_150128.tar
+docker save cvisionlab/vca:150128 | gzip > vca_150128.tgz
+docker save cvisionlab/vca:150128 > /data/vca_150128.tar
 ```
 
 **Load in images at once, without saving image file to disk**
@@ -24,5 +24,5 @@ docker save cvisionlab/vcakinder:150128 > /data/vcakinder_150128.tar
 
 ```bash
 python -m SimpleHTTPServer
-wget -O - -o /tmp/wget http://192.168.129.104:8000/tetn_alrotation-v1_with_data.tgz | docker load
+wget -O - -o /tmp/wget http://192.168.129.104:8000/tetn-v1_with_data.tgz | docker load
 ```

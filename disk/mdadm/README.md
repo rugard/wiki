@@ -77,3 +77,8 @@ mdadm --monitor --scan --test --oneshot
 ```
 mdadm /dev/md4 -r /dev/sdc1 -a /dev/sdc1
 ```
+
+### Remove `--quiet` in `/etc/cron.d/mdadm`
+
+
+

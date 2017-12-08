@@ -210,3 +210,10 @@ Partition number? 1
 Create fs on device:
 mkfs.ext4 /dev/sdb2
 ```
+
+## Unmount usb
+
+```
+udisksctl unmount -b /dev/sdc1
+udisksctl power-off -b /dev/sdc1
+```

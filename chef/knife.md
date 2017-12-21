@@ -2,6 +2,12 @@
 
 ## Using knife
 
+**Rewrite client key on client and server**
+
+```
+knife client reregister x.cvision.lab | ssh sysadmin@x.cvision.lab "sudo tee /etc/chef/client.pem"
+```
+
 **Bootstrap a new client/node **
 
 ```

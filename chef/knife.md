@@ -11,7 +11,7 @@ knife client reregister x.cvision.lab | ssh sysadmin@x.cvision.lab "sudo tee /et
 **Bootstrap a new client/node **
 
 ```
-knife bootstrap --sudo -x wsadm -N shuttle.cvision.lab shuttle.cvision.lab
+knife bootstrap --bootstrap-version "12.19.36" --sudo -x wsadm -N xenial.cvision.lab 192.168.129.220
 Node shuttle.cvision.lab exists, overwrite it? (Y/N) y
 Client shuttle.cvision.lab exists, overwrite it? (Y/N) y
 Creating new client for shuttle.cvision.lab
@@ -23,11 +23,6 @@ shuttle.cvision.lab
 shuttle.cvision.lab -----> Installing Chef Omnibus (-v 12)
 ```
 
-Method 2:
-
-```
-knife bootstrap --bootstrap-version "12.19.36" --sudo -x wsadm -N xenial.cvision.lab 192.168.129.220
-```
 
 **Show differences beetween repo and server**
 

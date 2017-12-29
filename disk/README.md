@@ -1,5 +1,13 @@
 # Control disk devices.
 
+## Zap(Clean/Remove) GPT(primary,backup) and Protective MBR inside GPT
+
+```
+gdisk /dev/sdX
+x
+z
+```
+
 ## Copy part table (GPT) from one to another disk:
 
 https://askubuntu.com/questions/57908/how-can-i-quickly-copy-a-gpt-partition-scheme-from-one-hard-drive-to-another

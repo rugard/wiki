@@ -3,3 +3,7 @@
 ```
 kvm -cdrom ~/Downloads/ReactOS-0.4.2-live.iso -vga std -localtime -net nic,model=ne2k_pci -net user -m 128
 ```
+
+```
+qemu-system-x86_64 -m 1024 -boot n -option-rom /usr/share/qemu/pxe-rtl8139.rom -net nic
+```

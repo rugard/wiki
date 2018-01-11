@@ -1,5 +1,37 @@
 # NVIDIA devices
 
+## Using DKMS
+
+```bash
+ 
+# dkms autoinstall
+
+# See what you can compile (here:)?
+/home/sysadmin# ll /usr/src/
+total 48
+drwxr-xr-x 12 root root 4096 Jan  9 21:32 ./
+drwxr-xr-x 12 root root 4096 Aug 22 12:36 ../
+drwxr-xr-x  3 root root 4096 Dec 26 18:17 anbox-modules-ashmem-9~zesty1/
+drwxr-xr-x  2 root root 4096 Dec 26 18:17 anbox-modules-binder-9~zesty1/
+drwxr-xr-x  2 root root 4096 Aug 22 12:36 bbswitch-0.8/
+drwxr-xr-x  4 root root 4096 Oct  3 14:28 cudnn_samples_v7/
+drwxr-xr-x 27 root root 4096 Nov 23 07:40 linux-headers-4.10.0-40/
+drwxr-xr-x  7 root root 4096 Nov 23 07:40 linux-headers-4.10.0-40-generic/
+drwxr-xr-x 27 root root 4096 Dec 26 16:18 linux-headers-4.10.0-43/
+drwxr-xr-x  7 root root 4096 Dec 26 16:18 linux-headers-4.10.0-43-generic/
+drwxr-xr-x  8 root root 4096 Jan  9 21:32 nvidia-384-384.111/
+drwxr-xr-x 12 root root 4096 Sep  7 11:56 virtualbox-5.1.22/
+
+# Manually
+dkms install nvidia/384-384.111 -k 4.10.0-40-generic
+
+# See what is comiled here:
+ll /lib/modules/4.10.0-40-generic/updates/dkms/
+
+modprobe nvidia_384 nvidia_384_uvm nvidia_384_drm nvidia_384_modeset
+```
+
+
 **Get kernel temp**
 
 ```bash

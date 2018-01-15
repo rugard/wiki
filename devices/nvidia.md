@@ -31,6 +31,10 @@ ll /lib/modules/4.10.0-40-generic/updates/dkms/
 modprobe nvidia_384 nvidia_384_uvm nvidia_384_drm nvidia_384_modeset
 ```
 
+Driver calls 
+```
+/usr/sbin/dkms build -m nvidia -v 384.98 -k 4.13.0-26-generic
+```
 
 **Get kernel temp**
 

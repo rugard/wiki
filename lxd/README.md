@@ -1,5 +1,56 @@
 # Using LXD
 
+## Puring lxd, restore system availability through network.
+
+```
+# <ctrl+alt+f1>
+# <ctrl+c>
+# <srvadm>
+# <password>
+sudo apt-get purge -yq lxd
+sudo ifdown br-en01
+sudo ifup br-en01
+```
+
+```
+rm /etc/apparmor.d/cache/usr.lib.lxd.lxd-bridge-proxy /etc/default/lxd-bridge
+rm -rf /var/log/lxd
+rm -rf /var/lib/lxd*
+```
+
+True install, without brokes network.
+```
+sudo ifdown br-en01
+lxc profile edit default
+```
+
+Change `user.network_mode:` from `dhcp` to `link-local`
+
+```
+config:
+  user.network_mode: link-local
+```
+
+Change: `parent:` to `br-en01`
+
+> **If testing**
+> Ensure that old container is down.
+> Theoretically syncrepl can be broken when multiple sync endpoints is up.
+
+Check:
+
+```
+lxc launch images:ubuntu/xenial xenial
+lxc start xenial
+lxc list # view ip of xenial, and then:
+lxc stop xenial
+lxc delete xenial
+```
+
+# Do not run `lxd init`
+# That case will setup dhcp, ip protocol on bridge interface and brokes the system availability through network.
+
+
 ### Russian article about lxd on habr
 
 https://habrahabr.ru/post/308400/

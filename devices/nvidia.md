@@ -1,19 +1,29 @@
 # NVIDIA devices
 
-## Install
+## Install case for desktops
 
 ```
 sudo apt-get install dkms linux-headers-generic
 wget http://st.x.com/software/nvidia/drivers/NVIDIA-Linux-x86_64-384.111.run
 
 ./NVIDIA-Linux-x86_64-384.111.run --ui=none --no-questions --accept-license --no-x-check --dkms --no-opengl-files
+ldconfig -p | grep nvidia
+modprobe nvidia
+lsmod | grep nvidia
+```
+
+## Install case for laptops
+
+```
+sudo apt-get install dkms linux-headers-generic
+sudo add-apt-repository ppa:graphics-drivers/ppa
+sudo apt-get update
+
+sudo apt-get install nvidia-384
 
 ldconfig -p | grep nvidia
-
 modprobe nvidia
-
 lsmod | grep nvidia
-
 ```
 
 ## Using DKMS

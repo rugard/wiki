@@ -6,7 +6,7 @@
 sudo apt-get install dkms linux-headers-generic
 wget http://st.x.com/software/nvidia/drivers/NVIDIA-Linux-x86_64-384.111.run
 
-./NVIDIA-Linux-x86_64-384.111.run --ui=none --no-questions --accept-license --no-x-check --dkms --no-opengl-files
+./NVIDIA-Linux-x86_64-384.111.run --ui=none --no-questions --accept-license --no-x-check --dkms --no-opengl-files --no-nouveau-check --disable-nouveau
 ldconfig -p | grep nvidia
 modprobe nvidia
 lsmod | grep nvidia

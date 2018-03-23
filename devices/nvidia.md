@@ -12,11 +12,20 @@ modprobe nvidia
 lsmod | grep nvidia
 
 
-# CUDA !!!
+# CUDA and cudann!!!
 
 ./cuda_9.0.176_384.81_linux-run --silent --toolkit  --toolkitpath=/usr/local/cuda-9.0 --samples --samplespath=/usr/local/cuda-9.0/samples --override
 ./cuda_9.0.176.1_linux.run --accept-eula --silent --installdir=/usr/local/cuda-9.0/
 ./cuda_9.0.176.2_linux.run --accept-eula --silent --installdir=/usr/local/cuda-9.0/
+
+wget http://st.cvisionlab.com/software/nvidia/cuda/cudann/9/7.1/cudnn-9.0-linux-x64-v7.1.tgz
+tar xvzf cudnn-9.0-linux-x64-v7.1.tgz
+
+cp cuda/include/cudnn.h /usr/local/cuda/include
+cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
+chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
+
+ldconfig
 
 ```
 

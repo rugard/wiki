@@ -10,6 +10,14 @@ wget http://st.x.com/software/nvidia/drivers/NVIDIA-Linux-x86_64-384.111.run
 ldconfig -p | grep nvidia
 modprobe nvidia
 lsmod | grep nvidia
+
+
+# CUDA !!!
+
+./cuda_9.0.176_384.81_linux-run --silent --toolkit  --toolkitpath=/usr/local/cuda-9.0 --samples --samplespath=/usr/local/cuda-9.0/samples --override
+./cuda_9.0.176.1_linux.run --accept-eula --silent --installdir=/usr/local/cuda-9.0/
+./cuda_9.0.176.2_linux.run --accept-eula --silent --installdir=/usr/local/cuda-9.0/
+
 ```
 
 ## Install case for laptops

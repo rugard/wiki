@@ -17,7 +17,20 @@ lsmod | grep nvidia
 ./cuda_9.0.176_384.81_linux-run --silent --toolkit  --toolkitpath=/usr/local/cuda-9.0 --samples --samplespath=/usr/local/cuda-9.0/samples --override
 ./cuda_9.0.176.1_linux.run --accept-eula --silent --installdir=/usr/local/cuda-9.0/
 ./cuda_9.0.176.2_linux.run --accept-eula --silent --installdir=/usr/local/cuda-9.0/
+# OR - diff in patch filename -
+./cuda_9.0.176.1_linux-run --accept-eula --silent --installdir=/usr/local/cuda-9.0/
+./cuda_9.0.176.2_linux-run --accept-eula --silent --installdir=/usr/local/cuda-9.0/
 
+
+# cudnn from deb (2018-04-03 updated as on hetzner)
+
+wget http://st.cvisionlab.com/software/nvidia/cuda/cudann/9/7.0/debs/libcudnn7_7.0.5.15-1%2Bcuda9.0_amd64.deb
+wget http://st.cvisionlab.com/software/nvidia/cuda/cudann/9/7.0/debs/libcudnn7-dev_7.0.5.15-1%2Bcuda9.0_amd64.deb
+wget http://st.cvisionlab.com/software/nvidia/cuda/cudann/9/7.0/debs/libcudnn7-doc_7.0.5.15-1%2Bcuda9.0_amd64.deb
+
+dpkg -i dpkg -i libcudnn7*
+
+# cudnn from tgz
 wget http://st.cvisionlab.com/software/nvidia/cuda/cudann/9/7.1/cudnn-9.0-linux-x64-v7.1.tgz
 tar xvzf cudnn-9.0-linux-x64-v7.1.tgz
 
@@ -25,6 +38,8 @@ cp cuda/include/cudnn.h /usr/local/cuda/include
 cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
 chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
 
+# Both for all 
+echo "/usr/local/cuda/lib64/" > /etc/ld.so.conf.d/cuda.conf
 ldconfig
 
 ```

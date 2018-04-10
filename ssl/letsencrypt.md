@@ -4,13 +4,6 @@ Lets encrypt
 
 I has succesfully setup let's encrypt on gate with following article **under root account**
 
-http://habrahabr.ru/post/270273/
-
-Links from goncharov:
-
-https://habrahabr.ru/post/279695/
-https://habrahabr.ru/post/304174/
-
 New Automatic, since 2017-30-May:
 
 ```
@@ -24,10 +17,15 @@ New Automatic:
 
 prep a sys:
 ```
-pip install -U pip
-pip install certbot
-pip install -U certbot
-pip install -U certbot-nginx
+pip uninstall certbot
+
+apt-get install software-properties-common
+add-apt-repository ppa:certbot/certbot
+apt update
+apt-get install python-certbot-nginx
+hash -r
+certbot --version
+
 
 certbot cerrificates
 # You should see existing manual recived certs on you server
@@ -46,6 +44,14 @@ to delete a cert interactively:
 ```
 certbot delete
 # select expired cert, enter
+```
+# Setup autoupdate via crontab:
+
+```
+# New true command for auto update certs in cron
+# -q  - quite
+# -n - non interactive (useful for cron)
+6  6,18 * * * root  certbot renew -nq --post-hook "service nginx reload"
 ```
 
 

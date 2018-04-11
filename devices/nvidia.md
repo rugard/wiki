@@ -21,6 +21,7 @@ chmod +x cuda*
 wget http://st.cvisionlab.com/software/nvidia/cuda/cudann/6/libcudnn6-dev_6.0.21-1%2Bcuda8.0_amd64.deb
 wget http://st.cvisionlab.com/software/nvidia/cuda/cudann/6/libcudnn6_6.0.21-1%2Bcuda8.0_amd64.deb
 dpkg -i libcudnn6*
+echo "/usr/local/cuda/lib64" > /etc/ld.so.conf.d/cuda.conf
 
 # CUDA 9 and cudann!!!
 

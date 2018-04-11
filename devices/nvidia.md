@@ -11,8 +11,18 @@ ldconfig -p | grep nvidia
 modprobe nvidia
 lsmod | grep nvidia
 
+# CUDA 8 and cudann 6!!! (e.g. for tf 1.4)
 
-# CUDA and cudann!!!
+wget http://st.cvisionlab.com/software/nvidia/cuda/8/run/cuda_8.0.61_375.26_linux.run
+wget http://st.cvisionlab.com/software/nvidia/cuda/8/run/cuda_8.0.61.2_linux.run
+chmod +x cuda*
+./cuda_8.0.61_375.26_linux.run --silent --toolkit  --toolkitpath=/usr/local/cuda-8.0 --samples --samplespath=/usr/local/cuda-8.0/samples --override
+./cuda_8.0.61.2_linux.run --accept-eula --silent --installdir=/usr/local/cuda-8.0/
+wget http://st.cvisionlab.com/software/nvidia/cuda/cudann/6/libcudnn6-dev_6.0.21-1%2Bcuda8.0_amd64.deb
+wget http://st.cvisionlab.com/software/nvidia/cuda/cudann/6/libcudnn6_6.0.21-1%2Bcuda8.0_amd64.deb
+dpkg -i libcudnn6*
+
+# CUDA 9 and cudann!!!
 
 ./cuda_9.0.176_384.81_linux-run --silent --toolkit  --toolkitpath=/usr/local/cuda-9.0 --samples --samplespath=/usr/local/cuda-9.0/samples --override
 ./cuda_9.0.176.1_linux.run --accept-eula --silent --installdir=/usr/local/cuda-9.0/

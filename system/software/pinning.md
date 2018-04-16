@@ -67,3 +67,30 @@ Install lxd:
 $ sudo apt-get install lxd
 $ sudo usermod -aG lxd sysadmin
 ```
+
+Install latest danted:
+
+```
+deb http://eu-central-1.ec2.archive.ubuntu.com/ubuntu/ bionic universe
+```
+
+Pin apt pkg `vim /etc/apt/preferences.d/dante`:
+
+```
+Package: dante-server
+Pin: release a=bionic
+Pin-Priority: 700
+
+Package: *
+Pin: release a=xenial
+Pin-Priority: 500
+
+Package: *
+Pin: release a=bionic
+Pin-Priority: 300
+```
+
+```
+apt update
+apt-get install --reinstall dante-server
+```

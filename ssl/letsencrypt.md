@@ -1,6 +1,12 @@
 Lets encrypt
 ===========
 
+Add a new cert for a new service:
+
+```
+certbot -d asda.cvisionlab.com
+```
+
 
 I has succesfully setup let's encrypt on gate with following article **under root account**
 

@@ -22,9 +22,10 @@ iptables -t filter -I FORWARD -d 83.221.209.54 -p tcp -m tcp --sport 21 -j LOG -
 
 The most common CONNMARK setup consist in putting connection mark on packet when they arrive and saving packet mark to connection when they leave. In term of iptables, this translates as:
 
+```
 iptables -A PREROUTING -t mangle -j CONNMARK --restore-mark
 iptables -A POSTROUTING -t mangle -j CONNMARK --save-mark
-
+```
 
 
 ## ip route tips

@@ -1,6 +1,12 @@
 Lets encrypt
 ===========
 
+Update on ldap
+
+```
+certbot -d ldap.svc.com --manual --preferred-challenges dns certonly
+```
+
 Add a new cert for a new service:
 
 ```

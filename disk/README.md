@@ -1,5 +1,11 @@
 # Control disk devices.
 
+## List devices
+
+```
+hdparm -I /dev/sd? | grep -e Model -e GB -e '^\/dev'
+```
+
 ## Zap(Clean/Remove) GPT(primary,backup) and Protective MBR inside GPT
 
 ```

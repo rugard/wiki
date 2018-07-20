@@ -15,6 +15,7 @@ Mount smb
 
 ```bash
 mount -t cifs //zeus/common /mnt/samba/ --verbose -o user=skubriev
+mount -t cifs --verbose -o username=skubriev,vers=1.0 //192.168.128.2/common /mnt/common/
 ```
 
 Mount nfs

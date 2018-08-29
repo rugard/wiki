@@ -14,7 +14,16 @@ udevadm info -a -p $(udevadm info -q path -n /dev/sdd)
 # old disk
 #KERNEL=="sd?", ATTRS{manufacturer}=="Seagate", ATTRS{product}=="FA GoFlex Desk", ATTRS{serial}=="NA0KLW9F", SYMLINK+="sdm"
 #new disk
-KERNEL=="sd?", ATTRS{manufacturer}=="Seagate", ATTRS{product}=="Expansion Desk", ATTRS{serial}=="NA8F2VCV", SYMLINK+="sdm"
+#KERNEL=="sd?", ATTRS{manufacturer}=="Seagate", ATTRS{product}=="Expansion Desk", ATTRS{serial}=="NA8F2VCV", SYMLINK+="sdm"
+#newer disk
+KERNEL=="sd?", ATTRS{manufacturer}=="Seagate", ATTRS{product}=="Expansion Desk", ATTRS{serial}=="NA8XAA4L", SYMLINK+="sdm"
+
+# for reset device use:
+# echo 0 > /sys/devices/pci0000:00/0000:00:14.0/usb4/4-6/authorized
+# echo 1 > /sys/devices/pci0000:00/0000:00:14.0/usb4/4-6/authorized
+# details see below:
+# https://askubuntu.com/questions/645/how-do-you-reset-a-usb-device-from-the-command-line
+
 ```
 
 # Some tip

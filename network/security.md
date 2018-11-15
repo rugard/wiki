@@ -14,3 +14,13 @@ Udp scan ntp server
 ```bash
 sudo nmap -sU -p123 192.168.0.10
 ```
+
+Scan subnet:
+
+```bash
+sudo nmap -sL 192.168.128.* | grep '('                                                                                                                                                                              
+Nmap scan report for gate.cvision.lab (192.168.1.1)
+Nmap scan report for st.cvision.lab (192.168.1.2)
+...
+Nmap done: 256 IP addresses (0 hosts up) scanned in 0.01 seconds
+```

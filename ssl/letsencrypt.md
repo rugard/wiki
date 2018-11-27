@@ -1,13 +1,23 @@
 Lets encrypt
 ===========
 
-Update on ldap
+## Update on ldap
 
 ```
 certbot -d ldap.svc.com --manual --preferred-challenges dns certonly
 ```
 
-Add a new cert for a new service:
+Update a dns, check:
+
+```
+dig @ns-1299.awsdns-34.org _acme-challenge.ldap.svc.com txt
+```
+
+Press Y, to check.
+
+
+
+## Add a new cert for a new service:
 
 ```
 certbot -d asda.cvisionlab.com

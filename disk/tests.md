@@ -4,6 +4,10 @@
 
 http://habrahabr.ru/post/154235/
 
+```bash
+sudo fio --filename=/mnt/fio.test --direct=1 --rw=randrw --refill_buffers --norandommap --randrepeat=0 --ioengine=libaio --bs=4k --rwmixread=100 --iodepth=16 --numjobs=16 --runtime=60 --group_reporting --name=4ktest --size=100m
+```
+
 ## Testing ssh, smb, nfs protocols
 
 Clear caches on client and server:

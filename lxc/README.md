@@ -1,3 +1,9 @@
+## Debug lxc-start
+
+```
+lxc-start -n backup -o /tmp/log -l DEBUG
+```
+
 ## 18.04 lxc container with ifupdown
 
 ```

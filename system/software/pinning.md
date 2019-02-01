@@ -94,3 +94,11 @@ Pin-Priority: 300
 apt update
 apt-get install --reinstall dante-server
 ```
+
+## Holding packages
+
+> hold is used to mark a package as held back, which will prevent the package from being automatically installed, upgraded or removed.
+
+```
+apt-mark hold linux-headers-4.15.0-13 linux-modules-4.15.0-13-generic
+```

@@ -15,3 +15,10 @@ sudo apt-get purge --auto-remove nvidia.*
 sudo apt-get update
 sudo apt-get install nvidia-current-updates nvidia-settings-updates
 ```
+
+
+```
+sudo docker run --rm -it -v /run/user/2087/gdm/Xauthority:/root/.Xauthority -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY  some_image_with_firefox
+
+# firefox
+```

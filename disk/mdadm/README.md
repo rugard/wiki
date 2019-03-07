@@ -1,3 +1,86 @@
+## Select a proper mdadm array type/layout.
+
+**Common for nested related to complex:**
+
+   pros:
+     * has more clean (not complicated) configuration than complex arrays
+   cons:
+     * requires an even number of component devices
+     * perfomance cannot be increased
+
+**Common for complex related to nested:**
+
+   pros:
+     * mdadm has built-in procedure to convert existing raid 1 to raid 10 throught converting raid 1 to raid 0, then we should create level 10 array and should add to it all other disks. (there are versions that does not support growing to level 10, e.g. mdadm on ZEUS (3.2.5-1ubuntu0.3) ) See latest 
+     * managed as a single RAID device
+     * perfomance can be increased by increasing number of drives (the far layout provides sequential read throughput that scales by number of drives, rather than number of RAID 1 pairs)
+     * a single spare can service all component devices
+
+
+**Maximum performances over single-disk mode should be:**
+
+0. nested 01 (unreliable - never use)
+
+1. nested 10
+
+2x sequential read speed (sequential read access can be striped only over disks with different data)
+2x sequential write speed (while writes can engage all four disks, remember that two disks are in RAID1 fashion)
+4x random read speed (random read are bound to the number of active spindles, four in this example)
+2x random write speed (again, writes need to be replicated).
+
+2. complex array with near layout is similar as nested (performance similar too)
+
+2x sequential read speed (sequential read access can be striped only over disks with different data)
+2x sequential write speed (while writes can engage all four disks, remember that two disks are in RAID1 fashion)
+4x random read speed (random read are bound to the number of active spindles, four in this example)
+2x random write speed (again, writes need to be replicated).
+
+3. complex array with far layout
+
+4x sequential read
+2x sequential write
+4x random read
+2x random write
+
+   pros:
+     * has better performance than near
+   cons:
+     * in random write and mixed random read/write workloads the disks will spend much more time in seeking 
+
+4. complex array with offset
+
+4x sequential read
+2x sequential write
+4x random read
+2x random write
+
+   pros:
+     * seek time is greatly reduced compared to the standard far layout
+   cons: 
+     * have slightly lower reliability then near of far layouts
+
+5. complex array with near=2, far=2
+
+Is an artifact of the implementation and is unlikely to be of real value.
+
+
+
+Useful links:
+
+https://www.suse.com/documentation/sles11/stor_admin/data/raidmdadmr10cpx.html
+http://www.ilsistemista.net/index.php/linux-a-unix/35-linux-software-raid-10-layouts-performance-near-far-and-offset-benchmark-analysis.html?start=1
+https://serverfault.com/questions/221778/raid-10-how-layout-works/221782#221782
+https://superuser.com/questions/311570/adding-drives-to-a-raid-10-array
+https://www.berthon.eu/2017/converting-raid1-to-raid10-online/
+
+Useful manuals: 
+
+```
+man 5 mdadm
+man 4 md
+```
+
+
 ## Увеличение размера массива за счет новых - больших дисков
 
 https://zedt.eu/tech/linux/migrating-existing-raid1-volumes-bigger-drives/

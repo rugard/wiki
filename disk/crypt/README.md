@@ -1,5 +1,26 @@
 # Crypt
 
+## Change a key 
+
+View slots:
+
+```
+cryptsetup luksDump /data/encrypted.raw
+```
+
+Change a key is first Slot
+
+```
+cryptsetup luksChangeKey -S 0
+```
+`-S 0` - slot 0
+
+The passphrase to be changed must be supplied  interactively
+
+The new passphrase can be supplied interactively or in a file given as positional argument.
+
+## Setup
+
 Follow http://xgu.ru/wiki/LUKS
 
 ```bash

@@ -1,3 +1,13 @@
+## writemostly
+
+Set `writemostly` to lowest speed disk in array:
+
+```
+root@uranus:/home/srvadm# echo writemostly > /sys/block/md1/md/dev-sdd1/state 
+root@uranus:/home/srvadm# cat /sys/block/md1/md/dev-sdd1/state 
+in_sync,write_mostly
+```
+
 ## Select a proper mdadm array type/layout.
 
 **Common for nested related to complex:**

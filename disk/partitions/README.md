@@ -1,4 +1,10 @@
 
+Copy fs on the fly (via ssh)
+
+```
+partclone.ext4 -c -s /dev/nvme0n1p7 -o - | ssh ubuntu@192.168.1.133 "sudo partclone.ext4 -r -o /dev/sda9 -s -"
+```
+
 **Remount rootfs from read-only to rw-mode in recovery mode**
 
 ```bash

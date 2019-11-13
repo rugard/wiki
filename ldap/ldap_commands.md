@@ -27,6 +27,13 @@ request from ldap server root console:
 ldapsearch -Y EXTERNAL -H ldapi:/// -b dc=cvision,dc=lab "(&(objectclass=posixAccount)(uid=*)(uidNumber=*)(gidNumber=*))"
 ```
 
+test from internet, e.g. htz srvs (Using -H):
+
+```
+ldapsearch -v -H ldaps://ldap.cvisionlab.com -x -b ou=users,dc=cvision,dc=lab "(cn=*)"
+```
+
+
 view first raw db:
 
 ```bash

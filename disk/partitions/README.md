@@ -1,4 +1,11 @@
 
+Device to device:
+
+```
+e2fsck -f /dev/hddraid/data
+partclone.ext4 -b -s /dev/hddraid/data -o /dev/fastraid250/fastdata
+```
+
 Copy fs on the fly (via ssh)
 
 ```

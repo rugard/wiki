@@ -153,6 +153,8 @@ badblocks -sv /dev/sda
 Write-Read with 5-x patterns:
 
 ```bash
+wipefs -af /dev/sdc?
+wipefs -af /dev/sdc
 badblocks -fwsv /dev/sdc
 ```
 > -f Don't check if device is in use. (use only if you think you're smarter than the badblocks program)

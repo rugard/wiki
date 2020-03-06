@@ -1,3 +1,20 @@
+# Raspberrypi3 cam show via network
+
+**on server**
+> fix mem issue
+```
+cat /boot/config.txt | grep gpu_mem
+reboot
+
+raspivid -t 0 -l -o tcp://0.0.0.0:3333
+```
+
+**on client**
+```
+vlc tcp/h264://raspberrypi3:3333
+```
+
+
 # Using CSI camera
 
 > This cam module works only with Xserver enabled. And can be enabled software in GUI `raspiconfig` tool.

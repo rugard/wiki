@@ -1,5 +1,9 @@
 # Network 
 
+## Useful base network docs
+
+https://iximiuz.com/en/posts/computer-networking-101
+
 ## Network diagnostic
 
 [Network Diagnostic](netdiag.md)

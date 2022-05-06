@@ -1,3 +1,12 @@
+# Setup 1214 on astalavista at 20.04
+
+```
+sudo apt-get install python3-pyqt5 hplip-gui
+sudo hp-setup
+```
+
+Scanning should be available now.
+
 # How to make setup command for home hp printer:
 
 **How to uri (for -v option):**

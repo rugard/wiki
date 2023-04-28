@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+v=$(ip a)
+
+printf 'Status: 200 OK\n'
+echo "Content-Type: text\plain\n"
+printf 'hello\n'
+printf "v: $v"

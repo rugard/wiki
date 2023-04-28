@@ -1,0 +1,10 @@
+#!/usr/bin/env python2
+import subprocess
+
+cmd='/bin/ip a'
+result = subprocess.check_output(cmd, shell=True)
+
+print 'Status: 200 OK'
+print "Content-Type: text/plain\r\n\r\n"
+print 'result:\n'
+print result

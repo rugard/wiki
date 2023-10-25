@@ -20,6 +20,8 @@ Comment[en_US]=
 Comment=
 ```
 
+### Start from cmd line
+
 `vim ~/.profile`
 
 ```
@@ -28,8 +30,20 @@ Comment=
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
 ```
 
+### Start from default menu (unity)
 
-Keyboard shortcuts to switch layout
+Also fix default desktop file (always after install):
+
+```
+sudo vim /usr/share/applications/org.flameshot.Flameshot.desktop
+```
+
+and replace default `Exec=`
+
+
+
+
+## Keyboard shortcuts to switch layout
 
 ```
 dconf read /org/gnome/desktop/input-sources/xkb-options

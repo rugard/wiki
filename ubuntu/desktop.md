@@ -1,3 +1,16 @@
+## HP
+
+> https://bugs.launchpad.net/ubuntu/+source/hplip/+bug/1306344
+
+```
+sudo apt-get install python3-pyqt5
+sudo ln -s /usr/share/hplip/sendfax.py /usr/bin/hp-sendfax
+```
+
+```
+sudo hp-setup
+```
+
 ## Fix flameshot on fractional scaling desktops (like my thinkpad)
 
 - https://askubuntu.com/questions/1253394/fractional-scaling-flameshot-screenshot-problem-20-04

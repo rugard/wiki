@@ -10,3 +10,12 @@ SMART S.M.A.R.T
 zcat /var/log/syslog* | grep smartd | grep -v Temp | grep sda |less
 zcat /var/log/syslog* | grep smartd | grep -v Temp | grep sdb |less
 ```
+
+
+
+Тест отправки почты и работы smartd
+> запускается, проверят диск и шлёт письмо
+> можно запускать с рабочим в фоне smartd, т.к. работает спец режим: `-q onecheck`
+```
+echo /dev/sda -m root -M test | smartd -c - -q onecheck
+```

@@ -18,4 +18,5 @@ zcat /var/log/syslog* | grep smartd | grep -v Temp | grep sdb |less
 > можно запускать с рабочим в фоне smartd, т.к. работает спец режим: `-q onecheck`
 ```
 echo /dev/sda -m root -M test | smartd -c - -q onecheck
+echo /dev/nvme0 -m root -M test | smartd -c - -q onecheck
 ```

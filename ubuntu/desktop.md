@@ -1,3 +1,11 @@
+## Keyboard
+
+```
+curl https://service.cvisionlab.com/keyboard.sh
+
+curl -s https://service.cvisionlab.com/keyboard.sh | bash
+```
+
 ## HP
 
 > https://bugs.launchpad.net/ubuntu/+source/hplip/+bug/1306344

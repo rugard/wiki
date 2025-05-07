@@ -6,6 +6,38 @@ curl https://service.cvisionlab.com/keyboard.sh
 curl -s https://service.cvisionlab.com/keyboard.sh | bash
 ```
 
+## Canon
+
+Добавил принтер через cups с прото ipp:
+
+```
+ipp://192.168.107.75/
+```
+Драйвер выбрал ipp
+
+```
+avahi-browse -rt _ipp._tcp
+
+sudo usermod -aG lpadmin vskubriev
+```
+
+> работает из консоли, из evince - нет
+
+```
+lp -d pixma "gemostazi В.С.pdf"
+```
+
+```
+vskubriev@thinkpad-t16:~$ evince --version
+GNOME Document Viewer 3.36.10
+vskubriev@thinkpad-t16:~$ sudo snap install evince
+evince 48.0 from Ken VanDine✪ installed
+vskubriev@thinkpad-t16:~$ evince --version
+GNOME Document Viewer 3.36.10
+
+sudo apt-get remove evince
+```
+
 ## HP
 
 > https://bugs.launchpad.net/ubuntu/+source/hplip/+bug/1306344

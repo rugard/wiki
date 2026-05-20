@@ -1,3 +1,26 @@
+## Keepassxc on 26.04 and wayland
+
+```bash
+sudo su
+[Sat May 23 11:07:27 2026] traps: keepassxc[1098902] general protection fault ip:7624ad529bd8 sp:7fff89892668 error:0 in libQt5Gui.so.5.15.18[129bd8,7624ad4e2000+542000]
+[Sat May 23 22:03:35 2026] OOM killer disabled.
+[Sun May 24 08:55:56 2026] OOM killer enabled.
+[Sun May 24 09:32:37 2026] traps: keepassxc[1363692] general protection fault ip:7f3402b29bd8 sp:7fffce2dd308 error:0 in libQt5Gui.so.5.15.18[129bd8,7f3402ae2000+542000]
+[Sun May 24 19:55:43 2026] OOM killer disabled.
+[Mon May 25 10:06:56 2026] OOM killer enabled.
+```
+
+```bash
+sudo vim /usr/share/applications/org.keepassxc.KeePassXC.desktop
+
+#Exec=keepassxc %f
+Exec=env QT_QPA_PLATFORM=xcb keepassxc %f
+
+# re-run,and go sleep
+
+sudo strings /proc/1630835/environ | grep QT_QPA_PLATFORM
+```
+
 ## Keyboard
 
 ```

@@ -1,3 +1,66 @@
+# fix-bluetooth
+
+`cat /usr/local/bin/fix-bluetooth`
+
+```bash
+#!/bin/bash
+
+set -x
+
+#https://share.google/aimode/3dWRS49CyMiosjw6H
+
+# Проверяем, что скрипт запущен от root
+if [ "$EUID" -ne 0 ]; then
+  echo "Пожалуйста, запустите скрипт через sudo: sudo fix-bluetooth"
+  exit 1
+fi
+
+echo "=== Запуск реанимации Bluetooth ==="
+
+# 1. Пытаемся найти PCI-адрес xHCI контроллера, на котором «висит» usb3
+PCI_DEV=$(basename $(readlink /sys/class/udc/*/device 2>/dev/null) 2>/dev/null)
+if [ -z "$PCI_DEV" ]; then
+    # Резервный точный поиск через sysfs для xHCI
+    PCI_DEV=$(basename $(dirname $(readlink /sys/bus/usb/devices/usb3)))
+fi
+
+# Если автоматика не сработала, берем ваш проверенный адрес ThinkBook
+if [ -z "$PCI_DEV" ] || [ "$PCI_DEV" = "devices" ]; then
+    PCI_DEV="0000:00:14.0"
+fi
+
+echo "Найдено PCI-устройство USB-контроллера: $PCI_DEV"
+
+# 2. Удаляем контроллер из шины PCI
+echo "Отключаем USB-контроллер..."
+echo "1" > "/sys/bus/pci/devices/${PCI_DEV}/remove"
+sleep 2
+
+# 3. Принудительно сканируем шину заново (подается питание)
+echo "Включаем USB-контроллер и сканируем шину..."
+echo "1" > /sys/bus/pci/rescan
+sleep 3
+
+# 4. Сбрасываем софтверные блокировки
+echo "Снимаем блокировки rfkill..."
+rfkill unblock bluetooth 2>/dev/null
+
+# 5. Перезапускаем службу Bluetooth для надежности
+echo "Перезапускаем службу BlueZ..."
+systemctl restart bluetooth
+
+# 6. Проверяем результат
+echo "-----------------------------------"
+if lsusb | grep -i bluetooth > /dev/null; then
+    echo "Успех! Bluetooth-адаптер снова виден в системе:"
+    lsusb | grep -i bluetooth
+else
+    echo "Ошибка: Адаптер не появился на шине USB. Попробуйте еще раз."
+fi
+
+
+```
+
 ## Keepassxc on 26.04 and wayland
 
 ```bash
